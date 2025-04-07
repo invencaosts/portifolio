@@ -1,15 +1,27 @@
 @import "tailwindcss";
 
 :root {
+  /* Cores do Sistema */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Cores do Projeto */
+  --primary: #990100
+  --secundary: #333333
+  --backgound-project: #F6F6F6;
 }
 
 @theme inline {
+  /* Cores do Sisema */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Cores do Projeto */
+  --color-primary: var(--primary);
+  --color-secundary: var(--secundary);
+  --color-background-project: var(--backgound-project);
 }
 
 @media (prefers-color-scheme: dark) {
