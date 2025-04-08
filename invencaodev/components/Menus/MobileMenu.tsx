@@ -11,7 +11,7 @@ const MobileMenu: React.FC = () => {
       {/* Botão do menu */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2 text-gray-700 hover:text-gray-900 focus:outline-none"
+        className="p-2 text-secundary hover:text-primary focus:outline-none"
         aria-label="Abrir menu"
       >
         <FiMenu className="w-6 h-6" />
@@ -25,14 +25,14 @@ const MobileMenu: React.FC = () => {
       >
         {/* Menu lateral */}
         <div
-          className={`absolute right-0 top-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 ease-in-out ${
+          className={`absolute right-0 top-0 h-full w-64 bg-tertiary shadow-xl transform transition-transform duration-300 ease-in-out ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           {/* Botão de fechar */}
           <button
             onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 p-2 text-gray-700 hover:text-gray-900 focus:outline-none"
+            className="absolute top-4 right-4 p-2 text-secundary hover:text-primary focus:outline-none"
             aria-label="Fechar menu"
           >
             <FiX className="w-6 h-6" />
@@ -44,32 +44,36 @@ const MobileMenu: React.FC = () => {
               <li>
                 <a
                   href="#"
-                  className="block py-2 text-gray-700 hover:text-gray-900"
+                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
                 >
+                  <p className="text-primary text-xs">01.</p>
                   Home
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block py-2 text-gray-700 hover:text-gray-900"
+                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
                 >
+                  <p className="text-primary text-xs">02.</p>
                   Sobre
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block py-2 text-gray-700 hover:text-gray-900"
+                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
                 >
+                  <p className="text-primary text-xs">03.</p>
                   Serviços
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block py-2 text-gray-700 hover:text-gray-900"
+                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
                 >
+                  <p className="text-primary text-xs">04.</p>
                   Contato
                 </a>
               </li>

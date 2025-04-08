@@ -8,7 +8,7 @@
   /* Cores do Projeto */
   --primary: #990100;
   --secundary: #333333;
-  --backgound-project: #f6f6f6;
+  --tertiary: #f6f6f6;
 }
 
 @theme inline {
@@ -21,7 +21,7 @@
   /* Cores do Projeto */
   --color-primary: var(--primary);
   --color-secundary: var(--secundary);
-  --color-background-project: var(--backgound-project);
+  --color-tertiary: var(--tertiary);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,12 +33,12 @@
     /* Cores do Projeto */
     --primary: #990100;
     --secundary: #333333;
-    --backgound-project: #f6f6f6;
+    --tertiary: #f6f6f6;
   }
 }
 
 body {
-  background: var(--background-project);
+  background: var(--tertiary);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
