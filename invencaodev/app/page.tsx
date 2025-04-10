@@ -1,3 +1,4 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
 const Home: React.FC = () => {
@@ -9,6 +10,7 @@ const Home: React.FC = () => {
           Welcome to Invencaodev
         </h1>
       </div>
+      <Footer />
     </div>
   );
 };
