@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Header />
-      <div>
+      <div id="home">
         <h1 className="text-4xl font-bold text-gray-800">
           Welcome to Invencaodev
         </h1>
