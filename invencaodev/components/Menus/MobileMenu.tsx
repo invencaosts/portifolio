@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
@@ -42,40 +43,24 @@ const MobileMenu: React.FC = () => {
           <nav className="mt-16 px-4">
             <ul className="space-y-4">
               <li>
-                <a
-                  href="#"
-                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
-                >
-                  <p className="text-primary text-xs">01.</p>
-                  Home
-                </a>
+                <Link className="flex items-baseline gap-1" href="#home">
+                  <p className="text-primary text-xs">01.</p>Home
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
-                >
-                  <p className="text-primary text-xs">02.</p>
-                  Sobre
-                </a>
+                <Link className="flex items-baseline gap-1" href="#sobre">
+                  <p className="text-primary text-xs">02.</p>Sobre
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
-                >
-                  <p className="text-primary text-xs">03.</p>
-                  Serviços
-                </a>
+                <Link className="flex items-baseline gap-1" href="#projetos">
+                  <p className="text-primary text-xs">03.</p>Projetos
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block py-2 text-secundary hover:text-primary flex items-baseline gap-1"
-                >
-                  <p className="text-primary text-xs">04.</p>
-                  Contato
-                </a>
+                <Link className="flex items-baseline gap-1" href="#contato">
+                  <p className="text-primary text-xs">04.</p>Contato
+                </Link>
               </li>
             </ul>
           </nav>
