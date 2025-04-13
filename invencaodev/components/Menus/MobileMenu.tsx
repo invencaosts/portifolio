@@ -8,63 +8,68 @@ const MobileMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="md:hidden">
-      {/* Botão do menu */}
+    <div className="md:hidden relative">
+      {/* Botão do menu com animação */}
       <button
-        onClick={() => setIsOpen(true)}
-        className="p-2 text-secundary hover:text-primary focus:outline-none"
-        aria-label="Abrir menu"
+        onClick={() => setIsOpen(!isOpen)}
+        className={`p-2 text-secundary hover:text-primary focus:outline-none transition-transform duration-300 ${
+          isOpen ? "-rotate-90" : "rotate-0"
+        }`}
+        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
       >
-        <FiMenu className="w-6 h-6" />
+        {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
       </button>
 
-      {/* Overlay para o menu Lateral */}
+      {/* Menu lateral compacto */}
       <div
-        className={`fixed inset-0 z-50 transition-all duration-300 ease-in-out ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      >
-        {/* Menu lateral */}
-        <div
-          className={`absolute right-0 top-0 h-full w-64 bg-tertiary shadow-xl transform transition-transform duration-300 ease-in-out ${
-            isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-22 right-4 z-50 flex flex-col items-center bg-tertiary shadow-xl rounded-lg p-4 w-32 
+          transform transition-transform duration-300 ease-in-out ${
+            isOpen
+              ? "translate-y-0 opacity-100 visible"
+              : "-translate-y-4 opacity-0 invisible"
           }`}
-        >
-          {/* Botão de fechar */}
-          <button
-            onClick={() => setIsOpen(false)}
-            className="absolute top-4 right-4 p-2 text-secundary hover:text-primary focus:outline-none"
-            aria-label="Fechar menu"
-          >
-            <FiX className="w-6 h-6" />
-          </button>
-
-          {/* Conteúdo do menu */}
-          <nav className="mt-16 px-4">
-            <ul className="space-y-4">
-              <li>
-                <Link className="flex items-baseline gap-1" href="#home">
-                  <p className="text-primary text-xs">01.</p>Home
-                </Link>
-              </li>
-              <li>
-                <Link className="flex items-baseline gap-1" href="#sobre">
-                  <p className="text-primary text-xs">02.</p>Sobre
-                </Link>
-              </li>
-              <li>
-                <Link className="flex items-baseline gap-1" href="#projetos">
-                  <p className="text-primary text-xs">03.</p>Projetos
-                </Link>
-              </li>
-              <li>
-                <Link className="flex items-baseline gap-1" href="#contato">
-                  <p className="text-primary text-xs">04.</p>Contato
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      >
+        {/* Conteúdo do menu */}
+        <nav className="mt-4">
+          <ul className="space-y-4 text-left">
+            <li>
+              <Link
+                className="flex items-baseline gap-1"
+                href="#home"
+                onClick={() => setIsOpen(false)}
+              >
+                <p className="text-primary text-xs">01.</p>Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="flex items-baseline gap-1"
+                href="#sobre"
+                onClick={() => setIsOpen(false)}
+              >
+                <p className="text-primary text-xs">02.</p>Sobre
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="flex items-baseline gap-1"
+                href="#projetos"
+                onClick={() => setIsOpen(false)}
+              >
+                <p className="text-primary text-xs">03.</p>Projetos
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="flex items-baseline gap-1"
+                href="#contato"
+                onClick={() => setIsOpen(false)}
+              >
+                <p className="text-primary text-xs">04.</p>Contato
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );
