@@ -42,6 +42,10 @@ const Home: React.FC = () => {
               size="md"
               variant="primary"
               width="full"
+              onClick={() => {
+                alert("Currículo clicado");
+              }}
+              href="https://drive.google.com/file/d/1UEqj05hKkTWgyKCU0T_nIwsj4kMdqcBT/view?usp=drive_link"
             />
           </div>
           <div className="mt-4">
@@ -50,6 +54,7 @@ const Home: React.FC = () => {
               size="md"
               variant="outline"
               width="full"
+              href="https://wa.me/5579999684200?text=Oi! Gostaria de saber mais sobre seus serviços."
             />
           </div>
         </div>
