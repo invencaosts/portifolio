@@ -1,21 +1,22 @@
 import { ButtonHTMLAttributes } from "react";
+import Link from "next/link";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
+  href?: string;
   size?: "sm" | "md" | "lg";
   width?: "full" | "auto" | "fit";
   variant?: "primary" | "outline";
-  onClick?: () => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const Button = ({
   label,
+  href,
   size = "md",
   width = "auto",
   variant = "primary",
-  onClick,
-  ...rest
-}) => {
+  ...props
+}: ButtonProps) => {
   // Classes baseadas nas props
   const sizeClasses = {
     sm: "py-1 px-3 text-sm",
@@ -30,23 +31,45 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const variantClasses = {
-    primary: "border border-primary bg-primary text-white",
-    outline: "border border-primary text-secundary",
+    primary: "border border-primary bg-primary text-white hover:bg-primary/90",
+    outline: "border border-primary text-primary hover:bg-primary/10",
   };
 
+  // Classes combinadas
+  const className = `
+    inline-flex items-center justify-center rounded-md font-medium
+    ${sizeClasses[size]}
+    ${widthClasses[width]}
+    ${variantClasses[variant]}
+    ${props.className || ""}
+  `;
+
+  // Renderização condicional
+  if (href) {
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      return (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={className}
+        >
+          {label}
+        </a>
+      );
+    }
+
+    return (
+      <Link href={href} className={className}>
+        {label}
+      </Link>
+    );
+  }
+
   return (
-    <button
-      onClick={onClick}
-      className={`
-        cursor-pointer rounded-md font-medium transition-colors
-        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
-        disabled:opacity-50 disabled:cursor-not-allowed
-        ${sizeClasses[size]}
-        ${widthClasses[width]}
-        ${variantClasses[variant]}
-      `}
-      {...rest}
-    >
+    <button className={className} {...props}>
       {label}
     </button>
   );
