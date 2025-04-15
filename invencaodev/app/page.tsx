@@ -8,16 +8,28 @@ import CardTeach from "@/components/CardTech";
 
 import { TypeAnimation } from "react-type-animation";
 
-import { FaReact, FaNodeJs } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs } from "react-icons/fa";
 
 const Home: React.FC = () => {
+  // Função para rolar o carrossel de tecnologias
+  const scrollContainer = (direction: "left" | "right") => {
+    const container = document.getElementById("tech-carousel");
+    if (container) {
+      const scrollAmount = 200; // Quantidade de pixels para rolar
+      container.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div>
       {/* Cabeçalho */}
       <Header />
 
       {/* Home */}
-      <div id="home" className="p-4 mt-[60] text-secundary">
+      <div id="home" className="p-4 mt-[60] text-secundary scroll-mt-20">
         <div className="font-bold overflow-hidden">
           <p className="text-xl md:text-2xl">Oi, meu nome é</p>
           <p className="text-4xl text-primary md:text-6xl">
@@ -71,7 +83,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Sobre mim */}
-      <div id="sobre" className="w-full">
+      <div id="sobre" className="w-full scroll-mt-20 ">
         <Topic id="01." label="Sobre mim" />
         <div className="px-4 text-secundary">
           <p>
@@ -110,8 +122,61 @@ const Home: React.FC = () => {
             As tecnologias que mais utilizo como desenvolvedor:
           </p>
         </div>
-        <div className="px-4 py-4">
-          <CardTeach icon={FaReact} label="React JS" color="#61DAFB" />
+
+        {/* Carrossel de tecnologias */}
+        <div className="relative px-4 py-4">
+          {/* Botão para rolar para a esquerda */}
+          <button
+            onClick={() => scrollContainer("left")}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-primary text-white p-2 rounded-full shadow-md z-10"
+          >
+            {"<"}
+          </button>
+
+          {/* Contêiner do carrossel */}
+          <div
+            id="tech-carousel"
+            className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar"
+          >
+            <CardTeach
+              icon={FaReact}
+              label="React JS"
+              color="#61DAFB"
+              className="flex-shrink-0 w-[120px] h-[100px]"
+            />
+            <CardTeach
+              icon={FaNodeJs}
+              label="Node.js"
+              color="#339933"
+              className="flex-shrink-0 w-[120px] h-[100px]"
+            />
+            <CardTeach
+              icon={FaHtml5}
+              label="HTML5"
+              color="#E34F26"
+              className="flex-shrink-0 w-[120px] h-[100px]"
+            />
+            <CardTeach
+              icon={FaCss3Alt}
+              label="CSS3"
+              color="#1572B6"
+              className="flex-shrink-0 w-[120px] h-[100px]"
+            />
+            <CardTeach
+              icon={FaJs}
+              label="JavaScript"
+              color="#F7DF1E"
+              className="flex-shrink-0 w-[120px] h-[100px]"
+            />
+          </div>
+
+          {/* Botão para rolar para a direita */}
+          <button
+            onClick={() => scrollContainer("right")}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-primary text-white p-2 rounded-full shadow-md z-10"
+          >
+            {">"}
+          </button>
         </div>
       </div>
 
