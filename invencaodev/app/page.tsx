@@ -1,15 +1,23 @@
 "use client";
 
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import { TypeAnimation } from "react-type-animation";
 import Button from "@/components/Button";
+import Footer from "@/components/Footer";
+import Topic from "@/components/Topic";
+import CardTeach from "@/components/CardTech";
+
+import { TypeAnimation } from "react-type-animation";
+
+import { FaReact, FaNodeJs } from "react-icons/fa";
 
 const Home: React.FC = () => {
   return (
-    <div className="font-arvo">
+    <div>
+      {/* Cabeçalho */}
       <Header />
-      <div id="home" className="p-4 text-secundary">
+
+      {/* Home */}
+      <div id="home" className="p-4 mt-[60] text-secundary">
         <div className="font-bold overflow-hidden">
           <p className="text-xl md:text-2xl">Oi, meu nome é</p>
           <p className="text-4xl text-primary md:text-6xl">
@@ -61,6 +69,53 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Sobre mim */}
+      <div id="sobre" className="w-full">
+        <Topic id="01." label="Sobre mim" />
+        <div className="px-4 text-secundary">
+          <p>
+            Meu foco é desenvolvimento utilizando tecnologias web como
+            JavaScript, TypeScript, ReactJS, entre outras. Atualmente, estou
+            estudando tecnologias de desenvolvimento mobile, como Java e Kotlin.
+            <br />
+            <br />
+            Tenho formação técnica em Análise e Desenvolvimento de Sistemas
+            pelo:{" "}
+            <span className="text-primary">
+              <a
+                href="https://www.se.senai.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                SENAI - Serviço Nacional de Aprendizagem Industrial / SE -
+                Brasil.
+              </a>
+            </span>
+            <br />
+            <br />
+            Atualmente, estou cursando Bacharelado em Sistemas de Informação
+            pelo:{" "}
+            <span className="text-primary">
+              <a
+                href="https://www.ifs.edu.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                IFS - Instituto Federal de Sergipe / SE - Brasil.
+              </a>
+            </span>
+            <br />
+            <br />
+            As tecnologias que mais utilizo como desenvolvedor:
+          </p>
+        </div>
+        <div className="px-4 py-4">
+          <CardTeach icon={FaReact} label="React JS" color="#61DAFB" />
+        </div>
+      </div>
+
+      {/* Rodapé */}
       <Footer />
     </div>
   );
