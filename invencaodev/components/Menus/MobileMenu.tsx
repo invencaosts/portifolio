@@ -22,7 +22,7 @@ const MobileMenu: React.FC = () => {
 
       {/* Menu lateral compacto */}
       <div
-        className={`fixed top-22 right-4 z-50 flex flex-col items-center bg-tertiary shadow-xl rounded-lg p-4 w-32 
+        className={`fixed top-18 right-4 z-50 flex flex-col items-center bg-tertiary shadow-xl rounded-lg p-4 w-32 
           transform transition-transform duration-300 ease-in-out ${
             isOpen
               ? "translate-y-0 opacity-100 visible"
