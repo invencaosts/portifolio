@@ -7,7 +7,7 @@ import {
 
 const Footer: React.FC = () => {
   return (
-    <div className="w-full bg-tertiary flex items-center justify-center flex-col text-secundary">
+    <div className="w-full bg-tertiary flex items-center justify-center flex-col text-secundary mt-4">
       <div className="w-full h-[2px] bg-primary"></div>
       <div className="flex items-center justify-center gap-4 mt-2 text-secundary">
         <div className="cursor-pointer hover:scale-110 transition-transform duration-300">
