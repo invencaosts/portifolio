@@ -22,7 +22,7 @@ const MobileMenu: React.FC = () => {
 
       {/* Menu lateral compacto */}
       <div
-        className={`fixed top-18 right-4 z-50 flex flex-col items-center bg-tertiary shadow-xl rounded-lg p-4 w-32 
+        className={`fixed top-18 right-4 z-50 w-[180px] flex flex-col items-center bg-tertiary shadow-xl rounded-lg p-4 w-32 
           transform transition-transform duration-300 ease-in-out ${
             isOpen
               ? "translate-y-0 opacity-100 visible"
@@ -53,10 +53,19 @@ const MobileMenu: React.FC = () => {
             <li>
               <Link
                 className="flex items-baseline gap-1"
+                href="#experiencia"
+                onClick={() => setIsOpen(false)}
+              >
+                <p className="text-primary text-xs">03.</p>Experiência
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="flex items-baseline gap-1"
                 href="#projetos"
                 onClick={() => setIsOpen(false)}
               >
-                <p className="text-primary text-xs">03.</p>Projetos
+                <p className="text-primary text-xs">04.</p>Projetos
               </Link>
             </li>
             <li>
@@ -65,7 +74,7 @@ const MobileMenu: React.FC = () => {
                 href="#contato"
                 onClick={() => setIsOpen(false)}
               >
-                <p className="text-primary text-xs">04.</p>Contato
+                <p className="text-primary text-xs">05.</p>Contato
               </Link>
             </li>
           </ul>

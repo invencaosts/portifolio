@@ -1,10 +1,10 @@
 import { IconType } from "react-icons";
 
 interface CardProjectProps {
-  repoName: string; // Nome do repositório
-  description: string; // Descrição do repositório
-  technologies: { icon: IconType; label: string }[]; // Tecnologias usadas no repositório
-  className?: string; // Classe CSS opcional
+  repoName: string;
+  description: string;
+  technologies: { icon: IconType; label: string }[];
+  className?: string;
 }
 
 const CardProject = ({
@@ -12,9 +12,8 @@ const CardProject = ({
   description,
   technologies,
   className,
-  repoUrl, // Adicionei a propriedade para o link do repositório
+  repoUrl,
 }: CardProjectProps & { repoUrl: string }) => {
-  // Limita o número de tecnologias a no máximo 3
   const displayedTechnologies = technologies.slice(0, 3);
 
   return (

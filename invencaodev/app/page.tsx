@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Topic from "@/components/Topic";
 import CardTeach from "@/components/CardTech";
 import CardProject from "@/components/CardProject";
+import CardJobs from "@/components/CardJobs"; // Importa o componente CardJobs
 import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
@@ -33,8 +34,8 @@ import { PiFileSql, PiFileCSharpBold } from "react-icons/pi";
 
 const Home: React.FC = () => {
   const [repositories, setRepositories] = useState<any[]>([]);
-  const [visibleRepos, setVisibleRepos] = useState<number>(3); // Estado para controlar o número de repositórios visíveis
-  const [isExpanded, setIsExpanded] = useState<boolean>(false); // Estado para alternar entre expandido e contraído
+  const [visibleRepos, setVisibleRepos] = useState<number>(3);
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchRepositories = async () => {
@@ -44,15 +45,19 @@ const Home: React.FC = () => {
         );
         const repos = await response.json();
 
-        const reposWithLanguages = await Promise.all(
-          repos.map(async (repo: any) => {
-            const languagesResponse = await fetch(repo.languages_url);
-            const languages = await languagesResponse.json();
-            return { ...repo, languages: Object.keys(languages) }; // Converte as linguagens em um array de strings
-          })
-        );
+        if (Array.isArray(repos)) {
+          const reposWithLanguages = await Promise.all(
+            repos.map(async (repo: any) => {
+              const languagesResponse = await fetch(repo.languages_url);
+              const languages = await languagesResponse.json();
+              return { ...repo, languages: Object.keys(languages) }; // Converte as linguagens em um array de strings
+            })
+          );
 
-        setRepositories(reposWithLanguages);
+          setRepositories(reposWithLanguages);
+        } else {
+          console.error("A resposta da API não é um array:", repos);
+        }
       } catch (error) {
         console.error("Erro ao buscar repositórios:", error);
       }
@@ -149,7 +154,7 @@ const Home: React.FC = () => {
 
       {/* Sobre mim */}
       <div id="sobre" className="w-full scroll-mt-20 md:text-xl">
-        <Topic id="01." label="Sobre mim" />
+        <Topic id="02." label="Sobre mim" />
 
         <div className="px-4 text-secundary grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Texto na esquerda */}
@@ -295,9 +300,50 @@ const Home: React.FC = () => {
         </div>
       </div>
 
+      {/* Experiência */}
+      <div id="experiencia" className="w-full scroll-mt-20 mt-6">
+        <Topic id="03." label="Experiência" />
+
+        <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <CardJobs
+            title="Desenvolvedor de Software"
+            company="BST Networks"
+            startDate="2025-02"
+            description="Desenvolvedor Full Stack | Agilidade na Resolução de Tarefas | Trabalho em equipe e autonomia"
+          />
+
+          <CardJobs
+            title="Desenvolvedor Freelancer"
+            company="Freelance"
+            startDate="2024-01"
+            description="Trabalhei no desenvolvimento de projetos web. | Aprendi e apliquei conhecimentos em diferentes linguagens e tecnologias. |   Auxiliei na manutenção de sites."
+          />
+
+          <CardJobs
+            title="Suporte de TI"
+            company="Truffles Geu"
+            startDate="2022-03"
+            endDate="2023-04"
+            description="Auxiliei na criação e manutenção de planilhas eletrônicas para vendas. | Aprendi e apliquei conhecimentos em análise de dados. | Contribuiu na solução de problemas relacionados a dados de vendas."
+          />
+        </div>
+
+        {/* Botão para carregar mais ou mostrar menos */}
+        <div className="flex justify-center mt-4">
+          <a
+            href="https://www.linkedin.com/in/guilherme-da-invencao-santos-556497282/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition cursor-pointer"
+          >
+            Veja mais no LinkedIn
+          </a>
+        </div>
+      </div>
+
       {/* Projetos */}
       <div id="projetos" className="w-full scroll-mt-20 mt-6">
-        <Topic id="02." label="Projetos" />
+        <Topic id="04." label="Projetos" />
 
         <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {repositories
