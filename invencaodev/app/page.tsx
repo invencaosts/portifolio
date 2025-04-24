@@ -432,18 +432,6 @@ const Home: React.FC = () => {
               value="https://invencaodev.vercel.app/"
             />
             <div>
-              {/* <Button
-                label="Enviar"
-                size="md"
-                variant="primary"
-                width="full"
-                type="submit"
-                form="contato-form"
-                onClick={() => {
-                  alert("Formulário enviado!");
-                }}
-              /> */}
-
               <button
                 type="submit"
                 className="w-full border border-primary bg-primary text-white rounded-md cursor-pointer py-2 px-4 text-tertiary"
