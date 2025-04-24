@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 import Topic from "@/components/Topic";
 import CardTeach from "@/components/CardTech";
+import CardProject from "@/components/CardProject";
 import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
@@ -12,11 +13,78 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
-import { FaReact, FaNodeJs, FaJava } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiKotlin } from "react-icons/si";
+import { useEffect, useState } from "react";
+import { IconType } from "react-icons";
+import {
+  FaReact,
+  FaNodeJs,
+  FaJava,
+  FaHtml5,
+  FaCss3,
+  FaPhp,
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiNextdotjs,
+  SiKotlin,
+  SiJavascript,
+} from "react-icons/si";
 import { PiFileSql, PiFileCSharpBold } from "react-icons/pi";
 
 const Home: React.FC = () => {
+  const [repositories, setRepositories] = useState<any[]>([]);
+  const [visibleRepos, setVisibleRepos] = useState<number>(3); // Estado para controlar o número de repositórios visíveis
+  const [isExpanded, setIsExpanded] = useState<boolean>(false); // Estado para alternar entre expandido e contraído
+
+  useEffect(() => {
+    const fetchRepositories = async () => {
+      try {
+        const response = await fetch(
+          "https://api.github.com/users/invencaosts/repos"
+        );
+        const repos = await response.json();
+
+        const reposWithLanguages = await Promise.all(
+          repos.map(async (repo: any) => {
+            const languagesResponse = await fetch(repo.languages_url);
+            const languages = await languagesResponse.json();
+            return { ...repo, languages: Object.keys(languages) }; // Converte as linguagens em um array de strings
+          })
+        );
+
+        setRepositories(reposWithLanguages);
+      } catch (error) {
+        console.error("Erro ao buscar repositórios:", error);
+      }
+    };
+
+    fetchRepositories();
+  }, []);
+
+  const techIcons: { [key: string]: IconType } = {
+    react: FaReact,
+    node: FaNodeJs,
+    typescript: SiTypescript,
+    nextjs: SiNextdotjs,
+    java: FaJava,
+    kotlin: SiKotlin,
+    sql: PiFileSql,
+    "c#": PiFileCSharpBold,
+    javascript: SiJavascript,
+    html: FaHtml5,
+    css: FaCss3,
+    php: FaPhp,
+  };
+
+  const toggleRepositories = () => {
+    if (isExpanded) {
+      setVisibleRepos(3); // Volta para 3 no mobile
+    } else {
+      setVisibleRepos(6); // Mostra 6 no desktop
+    }
+    setIsExpanded(!isExpanded); // Alterna o estado
+  };
+
   return (
     <div>
       {/* Cabeçalho */}
@@ -224,6 +292,42 @@ const Home: React.FC = () => {
               className="rounded shadow-[25px_25px_0px_-10px_rgba(185,_5,_4,_0.5)] w-[220px] h-[220px] lg:w-[300px] lg:h-[300px] object-cover"
             />
           </div>
+        </div>
+      </div>
+
+      {/* Projetos */}
+      <div id="projetos" className="w-full scroll-mt-20 mt-6">
+        <Topic id="02." label="Projetos" />
+
+        <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {repositories
+            .filter(
+              (repo) =>
+                repo.name !== "invencaosts" && repo.name !== "portifolio"
+            )
+            .slice(0, visibleRepos) // Exibe apenas o número de repositórios controlado pelo estado
+            .map((repo) => (
+              <CardProject
+                key={repo.id}
+                repoName={repo.name}
+                description={repo.description || "Sem descrição disponível."}
+                technologies={repo.languages.map((lang: string) => ({
+                  icon: techIcons[lang.toLowerCase()] || FaReact, // Ícone correspondente ou padrão
+                  label: lang,
+                }))}
+                repoUrl={repo.html_url}
+              />
+            ))}
+        </div>
+
+        {/* Botão para carregar mais ou mostrar menos */}
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={toggleRepositories}
+            className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition cursor-pointer"
+          >
+            {isExpanded ? "Mostrar menos" : "Carregar mais"}
+          </button>
         </div>
       </div>
 
