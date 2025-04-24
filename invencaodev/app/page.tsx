@@ -47,16 +47,25 @@ const Home: React.FC = () => {
     const fetchRepositories = async () => {
       try {
         const response = await fetch(
-          "https://api.github.com/users/invencaosts/repos"
+          "https://api.github.com/users/invencaosts/repos",
+          {
+            headers: {
+              Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+            },
+          }
         );
         const repos = await response.json();
 
         if (Array.isArray(repos)) {
           const reposWithLanguages = await Promise.all(
             repos.map(async (repo: any) => {
-              const languagesResponse = await fetch(repo.languages_url);
+              const languagesResponse = await fetch(repo.languages_url, {
+                headers: {
+                  Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
+                },
+              });
               const languages = await languagesResponse.json();
-              return { ...repo, languages: Object.keys(languages) }; // Converte as linguagens em um array de strings
+              return { ...repo, languages: Object.keys(languages) };
             })
           );
 
