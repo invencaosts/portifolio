@@ -21,12 +21,12 @@ const DesktopMenu: React.FC = () => {
         </li>
         <li>
           <Link className="flex items-baseline gap-1" href="#projetos">
-            <p className="text-primary text-sm">03.</p>Projetos
+            <p className="text-primary text-sm">04.</p>Projetos
           </Link>
         </li>
         <li>
           <Link className="flex items-baseline gap-1" href="#contato">
-            <p className="text-primary text-sm">04.</p>Contato
+            <p className="text-primary text-sm">05.</p>Contato
           </Link>
         </li>
       </ul>

@@ -31,6 +31,12 @@ import {
   SiJavascript,
 } from "react-icons/si";
 import { PiFileSql, PiFileCSharpBold } from "react-icons/pi";
+import {
+  FaLinkedinIn,
+  FaGithub,
+  FaWhatsapp,
+  FaInstagram,
+} from "react-icons/fa";
 
 const Home: React.FC = () => {
   const [repositories, setRepositories] = useState<any[]>([]);
@@ -374,6 +380,130 @@ const Home: React.FC = () => {
           >
             {isExpanded ? "Mostrar menos" : "Carregar mais"}
           </button>
+        </div>
+      </div>
+
+      <div id="contato" className="w-full scroll-mt-20 mt-6">
+        <Topic id="05." label="Contato" />
+
+        <div className="px-4 flex flex-col md:flex-row items-center justify-center gap-24 w-full max-w-4xl mx-auto">
+          <form
+            action="https://formsubmit.co/gui.inven@gmail.com"
+            method="POST"
+            className="flex flex-col w-full gap-4 lg:w-[500px]"
+          >
+            <div className="flex flex-col">
+              <label htmlFor="name">Nome Completo:</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Ex. Joana D'Arc"
+                required
+                className="p-2 border-2 border-primary rounded-sm bg-tertiary text-secundary outline-none"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="email">Melhor E-Mail:</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Ex. joana@darc.com"
+                required
+                className="p-2 border-2 border-primary rounded-sm bg-tertiary text-secundary outline-none"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="message">O que você quer saber?</label>
+              <textarea
+                name="message"
+                placeholder="Ex. Olá, gostaria de saber mais sobre..."
+                required
+                rows={4}
+                className="p-2 border-2 border-primary rounded-sm bg-tertiary text-secundary outline-none"
+              />
+            </div>
+
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://invencaodev.vercel.app/"
+            />
+            <div>
+              {/* <Button
+                label="Enviar"
+                size="md"
+                variant="primary"
+                width="full"
+                type="submit"
+                form="contato-form"
+                onClick={() => {
+                  alert("Formulário enviado!");
+                }}
+              /> */}
+
+              <button
+                type="submit"
+                className="w-full border border-primary bg-primary text-white rounded-md cursor-pointer py-2 px-4 text-tertiary"
+              >
+                Enviar
+              </button>
+            </div>
+          </form>
+
+          <div className="hidden md:flex flex-col text-end gap-8">
+            <div>
+              <p className="text-2xl text-primary">E-Mail</p>
+              <p className="text-xl ">gui.inven@gmail.com</p>
+            </div>
+            <div>
+              <p className="text-2xl text-primary">Endereço</p>
+              <p className="text-xl ">Aracaju - SE</p>
+            </div>
+            <div>
+              <p className="text-2xl text-primary">Mídias Sociais</p>
+              <div className="flex items-center justify-end gap-4 mt-2 text-secundary">
+                <div className="cursor-pointer hover:scale-110 transition-transform duration-300">
+                  <a
+                    href="https://www.linkedin.com/in/guilherme-da-invencao-santos-556497282/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaLinkedinIn className="w-6 h-6 md:w-8 md:h-8 text-[#0073B1]" />
+                  </a>
+                </div>
+                <div className="cursor-pointer hover:scale-110 transition-transform duration-300">
+                  <a
+                    href="https://github.com/invencaosts"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaGithub className="w-6 h-6 md:w-8 md:h-8" />
+                  </a>
+                </div>
+                <div className="cursor-pointer hover:scale-110 transition-transform duration-300">
+                  <a
+                    href="https://api.whatsapp.com/send?phone=5579999684200&text=Olá Gostaria de saber mais sobre o seu trabalho!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp className="w-6 h-6 md:w-8 md:h-8 text-[#24C660]" />
+                  </a>
+                </div>
+                <div className="cursor-pointer hover:scale-110 transition-transform duration-300">
+                  <a
+                    href="https://www.instagram.com/invencaodev/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaInstagram className="w-6 h-6 md:w-8 md:h-8 text-[#CF005D]" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
