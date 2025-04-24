@@ -21,6 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
+      <head>
+        <link rel="icon" href="/codeIcon.svg" />
+      </head>
       <body className={`${arvo.className} antialiased`}>{children}</body>
     </html>
   );
