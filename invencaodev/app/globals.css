@@ -40,4 +40,11 @@
 body {
   background: var(--tertiary);
   color: var(--foreground);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
