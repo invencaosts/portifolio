@@ -335,11 +335,10 @@ const Home: React.FC = () => {
           />
 
           <CardJobs
-            title="Suporte de TI"
-            company="Truffles Geu"
-            startDate="2022-03"
-            endDate="2023-04"
-            description="Auxiliei na criação e manutenção de planilhas eletrônicas para vendas. | Aprendi e apliquei conhecimentos em análise de dados. | Contribuiu na solução de problemas relacionados a dados de vendas."
+            title="GeoServer - CNPq"
+            company="CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico"
+            startDate="2025-06"
+            description="Desenvolvimento de um software de ponta para o compartilhamento e análise de dados de terras griladas no território brasileiro, utilizando ferramentas online e APIs para visualização de dados em formato de mapa. | Conquista Marcante: Fui convidado para a coautoria de um capítulo de livro, onde esse capítulo irá abordar as dificuldades e barreiras tecnológicas na criação de mapas didáticos, explorando soluções inovadoras para a educação."
           />
         </div>
 
