@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import Topic from "@/components/Topic";
 import CardTeach from "@/components/CardTech";
 import CardProject from "@/components/CardProject";
-import CardJobs from "@/components/CardJobs"; // Importa o componente CardJobs
+import CardJobs from "@/components/CardJobs";
 import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
@@ -40,20 +40,38 @@ import {
 
 const Home: React.FC = () => {
   const [repositories, setRepositories] = useState<any[]>([]);
+  // Inicia com 3 repositórios visíveis
   const [visibleRepos, setVisibleRepos] = useState<number>(3);
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
+  // O estado isExpanded não é mais necessário
 
   useEffect(() => {
     const fetchRepositories = async () => {
       try {
         const response = await fetch(
-          "https://api.github.com/users/invencaosts/repos",
+          // Endpoint modificado para buscar todos os repositórios do usuário autenticado (incluindo organizações)
+          "https://api.github.com/user/repos?type=all&per_page=100",
           {
             headers: {
               Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`,
             },
           }
         );
+
+        // Trata erro de autenticação ou rate limit
+        if (!response.ok) {
+          console.error(
+            `Erro ao buscar repositórios: ${response.status} ${response.statusText}`
+          );
+          // Tenta logar a mensagem de erro da API, se disponível
+          const errorData = await response
+            .json()
+            .catch(() => ({ message: "Erro desconhecido" }));
+          console.error("Detalhes do erro:", errorData);
+          setRepositories([]); // Limpa ou define um estado de erro
+          return;
+        }
+
         const repos = await response.json();
 
         if (Array.isArray(repos)) {
@@ -69,7 +87,33 @@ const Home: React.FC = () => {
             })
           );
 
-          setRepositories(reposWithLanguages);
+          const filteredAndSortedRepos = reposWithLanguages
+            .filter((repo) => {
+              // 1. EXCLUSÃO: Se for um dos seus projetos pessoais banidos, EXCLUA (return false).
+              if (
+                repo.owner.login === "invencaosts" &&
+                (repo.name === "invencaosts" || repo.name === "portifolio")
+              ) {
+                return false;
+              }
+
+              // 2. EXCLUSÃO: Se for da organização Morea-IFS, mas NÃO FOR o trancadura, EXCLUA (return false).
+              if (
+                repo.owner.login === "Morea-IFS" &&
+                repo.name !== "trancadura-web-react"
+              ) {
+                return false;
+              }
+
+              return true;
+            })
+            .sort(
+              (a, b) =>
+                new Date(b.updated_at).getTime() -
+                new Date(a.updated_at).getTime()
+            );
+
+          setRepositories(filteredAndSortedRepos);
         } else {
           console.error("A resposta da API não é um array:", repos);
         }
@@ -96,13 +140,14 @@ const Home: React.FC = () => {
     php: FaPhp,
   };
 
-  const toggleRepositories = () => {
-    if (isExpanded) {
-      setVisibleRepos(3); // Volta para 3 no mobile
-    } else {
-      setVisibleRepos(6); // Mostra 6 no desktop
-    }
-    setIsExpanded(!isExpanded); // Alterna o estado
+  // Função para carregar mais 3 repositórios
+  const loadMoreRepositories = () => {
+    setVisibleRepos((prev) => prev + 9);
+  };
+
+  // Função para redefinir para 3 (Mostrar menos)
+  const showLessRepositories = () => {
+    setVisibleRepos(3);
   };
 
   return (
@@ -361,18 +406,19 @@ const Home: React.FC = () => {
 
         <div className="px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {repositories
-            .filter(
-              (repo) =>
-                repo.name !== "invencaosts" && repo.name !== "portifolio"
-            )
-            .slice(0, visibleRepos) // Exibe apenas o número de repositórios controlado pelo estado
+            .slice(0, visibleRepos) // Limita a exibição com base no estado
             .map((repo) => (
               <CardProject
                 key={repo.id}
-                repoName={repo.name}
+                // Adiciona o nome do proprietário (Organização ou Usuário) para contexto
+                repoName={
+                  repo.owner.login !== "invencaosts"
+                    ? `${repo.owner.login}/${repo.name}`
+                    : repo.name
+                }
                 description={repo.description || "Sem descrição disponível."}
                 technologies={repo.languages.map((lang: string) => ({
-                  icon: techIcons[lang.toLowerCase()] || FaReact, // Ícone correspondente ou padrão
+                  icon: techIcons[lang.toLowerCase()] || FaReact,
                   label: lang,
                 }))}
                 repoUrl={repo.html_url}
@@ -380,14 +426,25 @@ const Home: React.FC = () => {
             ))}
         </div>
 
-        {/* Botão para carregar mais ou mostrar menos */}
+        {/* Lógica do Botão Carregar/Mostrar Menos */}
         <div className="flex justify-center mt-4">
-          <button
-            onClick={toggleRepositories}
-            className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition cursor-pointer"
-          >
-            {isExpanded ? "Mostrar menos" : "Carregar mais"}
-          </button>
+          {repositories.length > visibleRepos ? (
+            // Exibe "Carregar mais" se ainda houver repositórios para carregar
+            <button
+              onClick={loadMoreRepositories}
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition cursor-pointer"
+            >
+              Carregar mais
+            </button>
+          ) : repositories.length > 3 ? (
+            // Exibe "Mostrar menos" se todos os repositórios estiverem visíveis e o total for maior que o inicial (3)
+            <button
+              onClick={showLessRepositories}
+              className="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition cursor-pointer"
+            >
+              Mostrar menos
+            </button>
+          ) : null}
         </div>
       </div>
 
