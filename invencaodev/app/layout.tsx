@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Portifólio | <invencaodev/>",
   description:
     "Portifólio de projetos voltados a programação de Guilherme da Invenção.",
+
+  icons: {
+    icon: "/codeIcon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -21,9 +25,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <head>
-        <link rel="icon" href="/codeIcon.svg" />
-      </head>
       <body className={`${arvo.className} antialiased`}>{children}</body>
     </html>
   );
