@@ -2,7 +2,7 @@
 
 import { HiMiniBars3BottomLeft, HiMiniBars3BottomRight } from "react-icons/hi2";
 
-import ThemeToggle from "@/componentsV2/ThemeToggle";
+import GlowLinkButton from "@/componentsV2/GlowLinkButton";
 
 import { useState } from "react";
 
@@ -23,9 +23,7 @@ export default function MobileMenu() {
   return (
     <div className="relative w-full">
       {/* Header (botões) */}
-      <div className="flex items-center justify-end gap-4 px-4 py-3">
-        <ThemeToggle />
-
+      <div className="flex items-center justify-end ">
         {/* Toggle Menu */}
         <button
           onClick={handleToggleMenu}
@@ -35,6 +33,7 @@ export default function MobileMenu() {
             rounded-full
             transition-transform duration-300 ease-in-out
             active:scale-90
+            cursor-pointer
           "
         >
           {menuIcon}
@@ -49,24 +48,34 @@ export default function MobileMenu() {
             w-full
             min-h-[calc(75rem-100vh)]
             bg-background
-            border-b border-[var(--border)]
+            border-t-2 border-[var(--borderColor)]
             shadow-lg
-            px-6 py-6
+            p-4
             z-[9999]"
         >
-          <ul className="space-y-4 text-sm">
-            <li className="opacity-80">Home</li>
-            <li className="opacity-80">Sobre</li>
-            <li className="opacity-80">Projetos</li>
-            <li className="opacity-80">Habilidades</li>
-            <li className="opacity-80">Conquistas</li>
-            <li className="opacity-80">Contato</li>
+          <ul className="flex flex-col gap-4 text-sm">
+            <li className="opacity-80 cursor-pointer hover:text-primary">
+              Home
+            </li>
+            <li className="opacity-80 cursor-pointer hover:text-primary">
+              Sobre
+            </li>
+            <li className="opacity-80 cursor-pointer hover:text-primary">
+              Projetos
+            </li>
+            <li className="opacity-80 cursor-pointer hover:text-primary">
+              Habilidades
+            </li>
+            <li className="opacity-80 cursor-pointer hover:text-primary">
+              Conquistas
+            </li>
+            <li className="opacity-80 cursor-pointer hover:text-primary">
+              Contato
+            </li>
           </ul>
 
-          <div className="mt-6">
-            <button className="rounded-lg bg-primary px-4 py-2 text-white text-sm">
-              Resume
-            </button>
+          <div className="mt-4">
+            <GlowLinkButton href="/curriculo">Currículo</GlowLinkButton>
           </div>
         </nav>
       )}
