@@ -1,44 +1,93 @@
 @import "tailwindcss";
 
+/* PADRÃO DO SISTEMA WHITE */
 :root {
-  /* Cores do Sistema */
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Tatica maluca para redefinir variaveis de tema */
+  --theme-version: 2;
 
-  /* Cores do Projeto */
-  --primary: #990100;
-  --secundary: #333333;
-  --tertiary: #f6f6f6;
+  /* Base */
+  --background: #fdf8f8; /* off-white quente (rosa quase imperceptível) */
+  --foreground: #2b0f12; /* vinho escuro para texto */
+
+  /* Superfícies */
+  --surface: #ffffff; /* cards */
+  --surface-muted: #fbeeee; /* rosa MUITO suave para seções */
+
+  /* Brand */
+  --primary: #990100; /* vermelho indiscutível */
+  --primary-soft: #fde2e2; /* vermelho suave para hovers/destaques */
+
+  /* Texto secundário */
+  --secondary: #6b2a2f; /* vinho médio */
+
+  /* Bordas / divisores */
+  --border: #f2caca; /* rosa claro */
 }
 
 @theme inline {
-  /* Cores do Sistema */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
   /* Cores do Projeto */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
   --color-primary: var(--primary);
-  --color-secundary: var(--secundary);
-  --color-tertiary: var(--tertiary);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --border-color: var(--border);
 }
 
+/* PADRÃO DO SISTEMA DARK */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Cores do Sistema */
-    --background: #ffffff;
-    --foreground: #171717;
+    --background: #16090b; /* vinho quase preto */
+    --foreground: #f5eaea; /* off-white quente */
 
-    /* Cores do Projeto */
-    --primary: #990100;
-    --secundary: #333333;
-    --tertiary: #f6f6f6;
+    --surface: #1f0d10; /* superfície vinho */
+    --surface-muted: #2a0f12; /* contraste suave */
+
+    --primary: #ff3b3b; /* vermelho vivo */
+    --primary-soft: #3a1215; /* vermelho profundo */
+
+    --secondary: #e5bcbc; /* texto secundário quente */
+
+    --border: #3a1215;
   }
 }
 
+/* CLASSES PARA TROCAS MANUAIS DE TEMA */
+html.dark {
+  --background: #16090b;
+  --foreground: #f5eaea;
+
+  --surface: #1f0d10;
+  --surface-muted: #2a0f12;
+
+  --primary: #ff3b3b;
+  --primary-soft: #3a1215;
+
+  --secondary: #e5bcbc;
+  --border: #3a1215;
+}
+
+html.light {
+  --background: #fdf8f8;
+  --foreground: #2b0f12;
+
+  --surface: #ffffff;
+  --surface-muted: #fbeeee;
+
+  --primary: #990100;
+  --primary-soft: #fde2e2;
+
+  --secondary: #6b2a2f;
+  --border: #f2caca;
+}
+
 body {
-  background: var(--tertiary);
+  background: var(--background);
   color: var(--foreground);
   scroll-behavior: smooth;
   overflow-x: hidden;
