@@ -3,7 +3,7 @@
 /* PADRÃO DO SISTEMA WHITE */
 :root {
   /* Tatica maluca para redefinir variaveis de tema */
-  --theme-version: 2;
+  --theme-version: 1;
 
   /* Base */
   --background: #fdf8f8; /* off-white quente (rosa quase imperceptível) */
@@ -36,7 +36,7 @@
   --color-primary: var(--primary);
   --color-primary-soft: var(--primary-soft);
   --color-secondary: var(--secondary);
-  --border-color: var(--border);
+  --borderColor: var(--border);
 }
 
 /* PADRÃO DO SISTEMA DARK */
