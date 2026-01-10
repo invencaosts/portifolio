@@ -15,13 +15,13 @@
 
   /* Brand */
   --primary: #990100; /* vermelho indiscutível */
-  --primary-soft: #fde2e2; /* vermelho suave para hovers/destaques */
+  --primarySoft: #fde2e2; /* vermelho suave para hovers/destaques */
 
   /* Texto secundário */
   --secondary: #6b2a2f; /* vinho médio */
 
   /* Bordas / divisores */
-  --border: #f2caca; /* rosa claro */
+  --borderColor: #f2caca; /* rosa claro */
 }
 
 @theme inline {
@@ -34,9 +34,9 @@
   --color-surface: var(--surface);
   --color-surface-muted: var(--surface-muted);
   --color-primary: var(--primary);
-  --color-primary-soft: var(--primary-soft);
+  --color-primarySoft: var(--primary-soft);
   --color-secondary: var(--secondary);
-  --borderColor: var(--border);
+  --color-borderColor: var(--border);
 }
 
 /* PADRÃO DO SISTEMA DARK */
@@ -49,11 +49,11 @@
     --surface-muted: #2a0f12; /* contraste suave */
 
     --primary: #ff3b3b; /* vermelho vivo */
-    --primary-soft: #3a1215; /* vermelho profundo */
+    --primarySoft: #3a1215; /* vermelho profundo */
 
     --secondary: #e5bcbc; /* texto secundário quente */
 
-    --border: #3a1215;
+    --borderColor: #3a1215;
   }
 }
 
@@ -69,7 +69,7 @@ html.dark {
   --primary-soft: #3a1215;
 
   --secondary: #e5bcbc;
-  --border: #3a1215;
+  --borderColor: #3a1215;
 }
 
 html.light {
@@ -83,7 +83,7 @@ html.light {
   --primary-soft: #fde2e2;
 
   --secondary: #6b2a2f;
-  --border: #f2caca;
+  --borderColor: #f2caca;
 }
 
 body {

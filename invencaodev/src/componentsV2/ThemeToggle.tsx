@@ -31,9 +31,11 @@ export default function ThemeToggle() {
         transition-transform duration-500 ease-in-out
         hover:rotate-180
         active:rotate-[360deg]
+        cursor-pointer
+        outline-none
       "
     >
-      <span key={theme} className="transition-transform duration-500">
+      <span key={theme} className="text-primary transition-transform duration-500">
         {icon}
       </span>
     </button>
