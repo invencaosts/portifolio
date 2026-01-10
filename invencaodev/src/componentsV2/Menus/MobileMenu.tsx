@@ -1,55 +1,75 @@
 "use client";
 
-import { FiSun, FiMoon, FiMonitor } from "react-icons/fi";
-// import { HiMiniBars3BottomLeft, HiMiniBars3BottomRight } from "react-icons/hi2";
+import { HiMiniBars3BottomLeft, HiMiniBars3BottomRight } from "react-icons/hi2";
 
-import { useTheme } from "@/componentsV2/providers/theme-provider";
+import ThemeToggle from "@/componentsV2/ThemeToggle";
+
+import { useState } from "react";
 
 export default function MobileMenu() {
-  const { theme, setTheme } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
 
-  function handleToggle() {
-    if (theme === "light") setTheme("dark");
-    else if (theme === "dark") setTheme("system");
-    else setTheme("light");
+  // Menu
+  function handleToggleMenu() {
+    setIsOpen((prev) => !prev);
   }
 
-  const icon =
-    theme === "light" ? (
-      <FiSun />
-    ) : theme === "dark" ? (
-      <FiMoon />
-    ) : (
-      <FiMonitor />
-    );
+  const menuIcon = isOpen ? (
+    <HiMiniBars3BottomRight className="w-4 h-4" />
+  ) : (
+    <HiMiniBars3BottomLeft className="w-4 h-4" />
+  );
 
   return (
-    <div className="flex gap-4 items-center justify-center">
-      {/* Toggle Theme */}
-      <button
-        onClick={handleToggle}
-        aria-label="Alternar tema"
-        className="
-          w-10 h-10
-          flex items-center justify-center
-          rounded-full
-          transition-transform duration-600 ease-in-out
-          hover:rotate-180
-          active:rotate-[360deg]
-        "
-      >
-        <span
-          key={theme}
-          className="transition-transform duration-600 rotate-0"
-        >
-          {icon}
-        </span>
-      </button>
+    <div className="relative w-full">
+      {/* Header (botões) */}
+      <div className="flex items-center justify-end gap-4 px-4 py-3">
+        <ThemeToggle />
 
-      {/* Menu
-      <button aria-label="Abrir menu">
-        <HiMiniBars3BottomLeft />
-      </button> */}
+        {/* Toggle Menu */}
+        <button
+          onClick={handleToggleMenu}
+          aria-label="Abrir menu"
+          className="
+            flex items-center justify-center
+            rounded-full
+            transition-transform duration-300 ease-in-out
+            active:scale-90
+          "
+        >
+          {menuIcon}
+        </button>
+      </div>
+
+      {isOpen && (
+        <nav
+          className="
+            fixed
+            top-[3.5rem] left-0
+            w-full
+            min-h-[calc(75rem-100vh)]
+            bg-background
+            border-b border-[var(--border)]
+            shadow-lg
+            px-6 py-6
+            z-[9999]"
+        >
+          <ul className="space-y-4 text-sm">
+            <li className="opacity-80">Home</li>
+            <li className="opacity-80">Sobre</li>
+            <li className="opacity-80">Projetos</li>
+            <li className="opacity-80">Habilidades</li>
+            <li className="opacity-80">Conquistas</li>
+            <li className="opacity-80">Contato</li>
+          </ul>
+
+          <div className="mt-6">
+            <button className="rounded-lg bg-primary px-4 py-2 text-white text-sm">
+              Resume
+            </button>
+          </div>
+        </nav>
+      )}
     </div>
   );
 }
