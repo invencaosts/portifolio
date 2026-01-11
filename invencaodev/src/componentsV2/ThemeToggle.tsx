@@ -14,11 +14,11 @@ export default function ThemeToggle() {
 
   const icon =
     theme === "light" ? (
-      <FiSun className="w-4 h-4" />
+      <FiSun className="w-6 h-6" />
     ) : theme === "dark" ? (
-      <FiMoon className="w-4 h-4" />
+      <FiMoon className="w-6 h-6" />
     ) : (
-      <FiMonitor className="w-4 h-4" />
+      <FiMonitor className="w-6 h-6" />
     );
 
   return (
@@ -28,14 +28,17 @@ export default function ThemeToggle() {
       className="
         flex items-center justify-center
         rounded-full
-        transition-transform duration-500 ease-in-out
+        transition-transform duration-700 ease-in-out
         hover:rotate-180
         active:rotate-[360deg]
         cursor-pointer
         outline-none
       "
     >
-      <span key={theme} className="text-primary transition-transform duration-500">
+      <span
+        key={theme}
+        className="text-primary transition-transform duration-700"
+      >
         {icon}
       </span>
     </button>

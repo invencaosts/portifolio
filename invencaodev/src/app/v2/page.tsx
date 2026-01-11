@@ -10,7 +10,9 @@ export default function V2() {
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/" className="">
-          <p className="text-primary md:text-xl">&lt;invencaodev/&gt;</p>
+          <p className="text-primary font-bold md:text-xl">
+            &lt;invencaodev/&gt;
+          </p>
         </Link>
       </div>
 
