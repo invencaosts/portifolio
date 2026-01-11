@@ -110,7 +110,12 @@ export default function MobileMenu() {
           </ul>
 
           <div className="mt-4 text-end">
-            <GlowLinkButton href="#curriculo">Currículo</GlowLinkButton>
+            <GlowLinkButton
+              blank={true}
+              href="https://drive.google.com/file/d/1UEqj05hKkTWgyKCU0T_nIwsj4kMdqcBT/view?usp=sharing"
+            >
+              Currículo
+            </GlowLinkButton>
           </div>
         </nav>
       )}

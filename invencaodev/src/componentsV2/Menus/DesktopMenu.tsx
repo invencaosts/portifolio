@@ -61,7 +61,12 @@ export default function DesktopMenu() {
         </ul>
 
         <div className="">
-          <GlowLinkButton href="#curriculo">Currículo</GlowLinkButton>
+          <GlowLinkButton
+            blank={true}
+            href="https://drive.google.com/file/d/1UEqj05hKkTWgyKCU0T_nIwsj4kMdqcBT/view?usp=sharing"
+          >
+            Currículo
+          </GlowLinkButton>
         </div>
       </nav>
     </div>

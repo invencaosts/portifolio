@@ -5,16 +5,20 @@ type GlowLinkButtonProps = {
   href: string;
   children: ReactNode;
   className?: string;
+  blank?: boolean;
 };
 
 export default function GlowLinkButton({
   href,
   children,
   className = "",
+  blank = false,
 }: GlowLinkButtonProps) {
   return (
     <Link
       href={href}
+      target={blank ? "_blank" : undefined}
+      rel={blank ? "noopener noreferrer" : undefined}
       className={`
         relative
         inline-flex items-center justify-center
