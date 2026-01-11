@@ -15,9 +15,9 @@ export default function MobileMenu() {
   }
 
   const menuIcon = isOpen ? (
-    <HiMiniBars3BottomRight className="w-4 h-4" />
+    <HiMiniBars3BottomRight className="w-6 h-6" />
   ) : (
-    <HiMiniBars3BottomLeft className="w-4 h-4" />
+    <HiMiniBars3BottomLeft className="w-6 h-6" />
   );
 
   return (
@@ -31,7 +31,7 @@ export default function MobileMenu() {
           className="
             flex items-center justify-center
             rounded-full
-            transition-transform duration-300 ease-in-out
+            transition-transform duration-600 ease-in-out
             active:scale-90
             cursor-pointer
           "
@@ -46,7 +46,7 @@ export default function MobileMenu() {
             fixed
             top-[3.5rem] left-0
             w-full
-            min-h-[calc(75rem-100vh)]
+            min-h-[19rem]
             bg-background
             border-t-2 border-[var(--borderColor)]
             shadow-lg
