@@ -11,6 +11,7 @@ import MobileMenu from "@/componentsV2/Menus/MobileMenu";
 import DesktopMenu from "@/componentsV2/Menus/DesktopMenu";
 import ThemeToggle from "@/componentsV2/ThemeToggle";
 import GlowLinkButton from "@/componentsV2/GlowLinkButton";
+import CodeCard from "@/componentsV2/CodeCard";
 
 export default function V2() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -111,12 +112,25 @@ export default function V2() {
                   </GlowLinkButton>
                 </div>
                 <div>
-                  <Link
+                  <a
                     href="#projetos"
-                    className="bg-tertiary text-primary font-semibold px-6 py-2 ml-4 rounded-lg border-1 border-primary hover:bg-primary hover:text-background transition-colors duration-600"
+                    className="
+                      inline-flex items-center justify-center
+                      bg-tertiary text-primary
+                      font-semibold
+                      px-6 py-2 ml-4
+                      rounded-lg
+                      border border-primary
+
+                      transition-transform
+                      duration-300 ease-out
+
+                      hover:scale-105
+                      will-change-transform
+                    "
                   >
                     Ver Projetos
-                  </Link>
+                  </a>
                 </div>
               </div>
 
@@ -153,13 +167,7 @@ export default function V2() {
           </div>
 
           <div>
-            <Image
-              src="/images/imagemteste4.webp"
-              alt="Imagem de um desenvolvedor trabalhando em um laptop, cercado por ícones de tecnologia."
-              width={400}
-              height={250}
-              className="w-[400px] h-[280px]"
-            />
+            <CodeCard />
           </div>
         </section>
 
