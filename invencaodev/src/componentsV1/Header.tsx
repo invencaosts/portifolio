@@ -1,5 +1,5 @@
-import MobileMenu from "@/components/Menus/MobileMenu";
-import DesktopMenu from "@/components/Menus/DesktopMenu";
+import MobileMenu from "@/componentsV1/Menus/MobileMenu";
+import DesktopMenu from "@/componentsV1/Menus/DesktopMenu";
 
 const Header: React.FC = () => {
   return (

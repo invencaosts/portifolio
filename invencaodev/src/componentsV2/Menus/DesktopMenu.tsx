@@ -4,7 +4,7 @@ export default function DesktopMenu() {
   return (
     <div>
       <nav className="flex items-center justify-center gap-6">
-        <ul className="flex gap-4 text-base text-end">
+        <ul className="flex gap-4 text-sm text-end">
           <li>
             <a
               href="#home"

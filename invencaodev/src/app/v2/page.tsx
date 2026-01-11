@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
 import { LuGithub, LuLinkedin, LuMail } from "react-icons/lu";
@@ -29,7 +30,7 @@ export default function V2() {
         className={`
     sticky top-0 z-50
     w-full
-    h-[60px] md:h-[80px]
+    h-[60px] lg:h-[80px]
     transition-all duration-300
     ${
       isScrolled
@@ -42,7 +43,7 @@ export default function V2() {
         <div className="h-full max-w-7xl mx-auto px-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <p className="text-primary font-bold md:text-xl">
+            <p className="text-primary font-bold lg:text-xl">
               &lt;invencaodev/&gt;
             </p>
           </Link>
@@ -62,13 +63,16 @@ export default function V2() {
         </div>
       </header>
 
-      <main className="p-4">
-        <section id="home" className="w-full mt-12">
-          <div className="text-center">
+      <main className="p-4 lg:mx-auto">
+        <section
+          id="home"
+          className="w-full mt-12 flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24"
+        >
+          <div className="text-center lg:text-start">
             <div>
               <p className="text-primary text-base">Olá! Me chamo</p>
             </div>
-            <div className="flex align items-center justify-center mt-6">
+            <div className="flex align items-center justify-center mt-6 lg:justify-start">
               <h1 className="text-4xl">
                 Guilherme da <strong className="text-primary">Invenção</strong>
               </h1>
@@ -76,20 +80,30 @@ export default function V2() {
             <div className="mt-6">
               <TypeAnimation
                 sequence={[
-                  "Desenvolvedor Full-Stack",
+                  "Front-End Developer",
                   500,
-                  "Criador de soluções em software",
+                  "Back-End Developer",
                   500,
-                  "Apaixonado por tecnologia",
+                  "DevOps Engineer",
+                  500,
+                  "SQL Developer",
+                  500,
+                  "Mobile Developer",
                   500,
                 ]}
                 repeat={Infinity}
                 speed={30}
-                className="text-xl md:text-4xl"
+                className="text-xl lg:text-4xl"
               />
             </div>
+            <div>
+              <p className="mt-6 text-sm text-foreground">
+                Criando soluções digitais inovadoras e eficientes <br />
+                para impulsionar o sucesso dos meus clientes.
+              </p>
+            </div>
 
-            <div className="mt-6 flex flex-col items-center justify-center gap-4">
+            <div className="mt-6 flex flex-col items-center justify-center gap-4 lg:flex-row lg:items-center lg:justify-start">
               <div className="flex items-center justify-center">
                 <div>
                   <GlowLinkButton href="#contato">
@@ -106,7 +120,7 @@ export default function V2() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-center gap-6 mt-6 text-foreground">
+              <div className="flex items-center justify-center gap-6 mt-6 text-foreground lg:mt-0">
                 <div>
                   <a
                     href="https://github.com/invencaosts"
@@ -137,11 +151,21 @@ export default function V2() {
               </div>
             </div>
           </div>
+
+          <div>
+            <Image
+              src="/images/imagemteste4.webp"
+              alt="Imagem de um desenvolvedor trabalhando em um laptop, cercado por ícones de tecnologia."
+              width={400}
+              height={250}
+              className="w-[400px] h-[280px]"
+            />
+          </div>
         </section>
 
-        <section id="sobre" className="h-screen">
+        {/* <section id="sobre" className="h-screen">
           <h2>Sobre Mim</h2>
-        </section>
+        </section> */}
       </main>
     </div>
   );
