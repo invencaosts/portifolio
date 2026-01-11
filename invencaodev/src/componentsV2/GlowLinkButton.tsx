@@ -22,7 +22,7 @@ export default function GlowLinkButton({
         rounded-lg
         bg-primary
         px-4 py-2
-        text-sm text-white
+        text-sm md:text-base text-white
         cursor-pointer
 
         transition-all duration-300
