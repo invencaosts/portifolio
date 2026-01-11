@@ -53,29 +53,64 @@ export default function MobileMenu() {
             p-4
             z-[9999]"
         >
-          <ul className="flex flex-col gap-4 text-sm">
-            <li className="opacity-80 cursor-pointer hover:text-primary">
-              Home
+          <ul className="flex flex-col gap-4 text-sm text-end">
+            <li>
+              <a
+                href="#home"
+                className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              >
+                Home
+              </a>
             </li>
-            <li className="opacity-80 cursor-pointer hover:text-primary">
-              Sobre
+
+            <li>
+              <a
+                href="#sobre"
+                className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              >
+                Sobre
+              </a>
             </li>
-            <li className="opacity-80 cursor-pointer hover:text-primary">
-              Projetos
+
+            <li>
+              <a
+                href="#projetos"
+                className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              >
+                Projetos
+              </a>
             </li>
-            <li className="opacity-80 cursor-pointer hover:text-primary">
-              Habilidades
+
+            <li>
+              <a
+                href="#habilidades"
+                className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              >
+                Habilidades
+              </a>
             </li>
-            <li className="opacity-80 cursor-pointer hover:text-primary">
-              Conquistas
+
+            <li>
+              <a
+                href="#conquistas"
+                className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              >
+                Conquistas
+              </a>
             </li>
-            <li className="opacity-80 cursor-pointer hover:text-primary">
-              Contato
+
+            <li>
+              <a
+                href="#contato"
+                className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              >
+                Contato
+              </a>
             </li>
           </ul>
 
-          <div className="mt-4">
-            <GlowLinkButton href="/curriculo">Currículo</GlowLinkButton>
+          <div className="mt-4 text-end">
+            <GlowLinkButton href="#curriculo">Currículo</GlowLinkButton>
           </div>
         </nav>
       )}

@@ -4,26 +4,64 @@ export default function DesktopMenu() {
   return (
     <div>
       <nav className="flex items-center justify-center gap-6">
-        <ul className="flex items-center gap-6 text-sm">
-          <li className="opacity-80 cursor-pointer hover:text-primary">Home</li>
-          <li className="opacity-80 cursor-pointer hover:text-primary">
-            Sobre
+        <ul className="flex gap-4 text-base text-end">
+          <li>
+            <a
+              href="#home"
+              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+            >
+              Home
+            </a>
           </li>
-          <li className="opacity-80 cursor-pointer hover:text-primary">
-            Projetos
+
+          <li>
+            <a
+              href="#sobre"
+              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+            >
+              Sobre
+            </a>
           </li>
-          <li className="opacity-80 cursor-pointer hover:text-primary">
-            Habilidades
+
+          <li>
+            <a
+              href="#projetos"
+              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+            >
+              Projetos
+            </a>
           </li>
-          <li className="opacity-80 cursor-pointer hover:text-primary">
-            Conquistas
+
+          <li>
+            <a
+              href="#habilidades"
+              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+            >
+              Habilidades
+            </a>
           </li>
-          <li className="opacity-80 cursor-pointer hover:text-primary">
-            Contato
+
+          <li>
+            <a
+              href="#conquistas"
+              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+            >
+              Conquistas
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#contato"
+              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+            >
+              Contato
+            </a>
           </li>
         </ul>
+
         <div className="">
-          <GlowLinkButton href="/curriculo">Currículo</GlowLinkButton>
+          <GlowLinkButton href="#curriculo">Currículo</GlowLinkButton>
         </div>
       </nav>
     </div>
