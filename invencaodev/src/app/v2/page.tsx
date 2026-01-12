@@ -28,17 +28,16 @@ export default function V2() {
   }, []);
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full">
       <header
         className={`
     sticky top-0 z-50
-    w-full
-    h-[60px] lg:h-[80px]
+    w-full h-[60px] lg:h-[80px]
     transition-all duration-300
     ${
       isScrolled
-        ? "bg-background shadow-none"
-        : "bg-background/70 backdrop-blur-md shadow-sm"
+        ? "bg-background/80 backdrop-blur-md shadow-sm"
+        : "bg-background/60 backdrop-blur-md"
     }
   `}
       >
@@ -176,49 +175,100 @@ export default function V2() {
           </div>
         </section>
 
-        <section id="sobre" className="w-full mt-18 text-foreground">
+        <section id="sobre" className="w-full mt-18 text-foreground lg:px-28">
+          {/* Título */}
           <div>
             <h1 className="text-2xl font-semibold">Sobre Mim</h1>
             <div className="h-1 w-12 bg-primary rounded-full"></div>
           </div>
-          <div className="mt-8 flex flex-col gap-2">
-            <div className="text-foreground flex items-center justify-start gap-1 text-xl font-semibold">
-              <IoNewspaperOutline className="text-primary" />
-              <p>Bio</p>
+
+          {/* Conteúdo */}
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Coluna esquerda */}
+            <div>
+              {/* Bio */}
+              <div className="mt-8 flex flex-col gap-2">
+                <div className="text-foreground flex items-center gap-1 text-xl font-semibold">
+                  <IoNewspaperOutline className="text-primary" />
+                  <p>Bio</p>
+                </div>
+
+                <p className="text-foreground/60">
+                  Sou um Desenvolvedor de Software com experiência em
+                  desenvolvimento web. Iniciei minha jornada na programação em
+                  2021 e sou apaixonado por novas tecnologias.
+                  <br /> <br />
+                  Estou sempre buscando aprender e me aprimorar a cada dia.
+                  Tenho foco em desenvolvimento utilizando tecnologias web, como
+                  JavaScript, TypeScript, ReactJS, entre outras.
+                  <br /> <br />
+                  Atualmente, estou estudando tecnologias para desenvolvimento
+                  mobile, como Java e Kotlin. Me considero decidido e
+                  entusiasmado em relação ao aprendizado de novas linguagens e
+                  tecnologias. Além disso, sou adaptável a mudanças e estou
+                  sempre pronto para superar qualquer desafio.
+                </p>
+              </div>
+
+              {/* Cards */}
+              <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                <CardAboutMe
+                  tipoCard="Educação"
+                  experiencias={[
+                    {
+                      nomeInstituicao: "IFS - Instituto Federal de Sergipe",
+                      titulo: "Bacharelado em Sistemas da Informação",
+                      periodo: "2024 - 2028",
+                    },
+                    {
+                      nomeInstituicao:
+                        "SENAI CETCC - Centro de Educação Tecnológica e Ciências",
+                      titulo:
+                        "Técnico em Análise e Desenvolvimento de Sistemas",
+                      periodo: "2021 - 2023",
+                    },
+                  ]}
+                />
+
+                <CardAboutMe
+                  tipoCard="Experiência"
+                  experiencias={[
+                    {
+                      nomeInstituicao: "WMSaúde",
+                      titulo: "Estágio em Desenvolvimento PHP",
+                      periodo: "12/2025 - Presente",
+                    },
+                    {
+                      nomeInstituicao:
+                        "Desenvolvedor Freelance - Entre em contato para mais.",
+                      titulo: "Freelance em Desenvolvimento FullStack",
+                      periodo: "2024 - Presente",
+                    },
+                    {
+                      nomeInstituicao: "Geo Server - CNPq",
+                      titulo: "Freelance em Desenvolvimento FullStack",
+                      periodo: "06/2025 - 02/2026",
+                    },
+                    {
+                      nomeInstituicao: "BST Networks",
+                      titulo: "Freelance em Desenvolvimento FullStack",
+                      periodo: "02/2025 - 05/2026",
+                    },
+                  ]}
+                />
+              </div>
             </div>
-            <p className="text-foreground/60">
-              Sou um Desenvolvedor de Software com experiência em
-              desenvolvimento web. Iniciei minha jornada na programação em 2021
-              e sou apaixonado por novas tecnologias.
-              <br /> <br />
-              Estou sempre buscando aprender e me aprimorar a cada dia. Tenho
-              foco em desenvolvimento utilizando tecnologias web, como
-              JavaScript, TypeScript, ReactJS, entre outras.
-              <br /> <br />
-              Atualmente, estou estudando tecnologias para desenvolvimento
-              mobile, como Java e Kotlin. Me considero decidido e entusiasmado
-              em relação ao aprendizado de novas linguagens e tecnologias. Além
-              disso, sou adaptável a mudanças e estou sempre pronto para superar
-              qualquer desafio.
-            </p>
-          </div>
-          <div className="mt-8">
-            <CardAboutMe
-              tipoCard="Educação"
-              experiencias={[
-                {
-                  nomeInstituicao: "IFS - Instituto Federal de Sergipe",
-                  titulo: "Bacharelado em Sistemas da Informação",
-                  periodo: "2024 - 2028",
-                },
-                {
-                  nomeInstituicao:
-                    "SENAI CETCC - Centro de Educação Tecnológica e Ciências",
-                  titulo: "Técnico em Análise e Desenvolvimento de Sistemas",
-                  periodo: "2021 - 2023",
-                },
-              ]}
-            />
+
+            {/* Coluna direita */}
+            <div className="flex justify-center lg:justify-end">
+              <Image
+                src="/images/imagemteste4.webp"
+                alt="Imagem de código"
+                width={500}
+                height={500}
+                className="mx-auto lg:mx-0"
+              />
+            </div>
           </div>
         </section>
       </main>
