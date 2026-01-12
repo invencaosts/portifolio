@@ -14,11 +14,11 @@ export default function ThemeToggle() {
 
   const icon =
     theme === "light" ? (
-      <FiSun className="w-6 h-6" />
-    ) : theme === "dark" ? (
       <FiMoon className="w-6 h-6" />
-    ) : (
+    ) : theme === "dark" ? (
       <FiMonitor className="w-6 h-6" />
+    ) : (
+      <FiSun className="w-6 h-6" />
     );
 
   return (
