@@ -3,7 +3,7 @@
 /* PADRÃO DO SISTEMA WHITE */
 :root {
   /* Tatica maluca para redefinir variaveis de tema */
-  --theme-version: 1;
+  --theme-version: 2;
 
   /* Base */
   --background: #fdf8f8; /* off-white quente (rosa quase imperceptível) */
@@ -77,7 +77,7 @@ html.light {
   --foreground: #2b0f12;
 
   --surface: #ffffff;
-  --surface-muted: #fbeeee;
+  --surfaceMuted: #fbeeee;
 
   --primary: #990100;
   --primarySoft: #fde2e2;

@@ -6,12 +6,14 @@ import Image from "next/image";
 
 import { TypeAnimation } from "react-type-animation";
 import { LuGithub, LuLinkedin, LuMail } from "react-icons/lu";
+import { IoNewspaperOutline } from "react-icons/io5";
 
 import MobileMenu from "@/componentsV2/Menus/MobileMenu";
 import DesktopMenu from "@/componentsV2/Menus/DesktopMenu";
 import ThemeToggle from "@/componentsV2/ThemeToggle";
 import GlowLinkButton from "@/componentsV2/GlowLinkButton";
 import CodeCard from "@/componentsV2/CodeCard";
+import CardAboutMe from "@/componentsV2/CardAboutMe";
 
 export default function V2() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -98,7 +100,7 @@ export default function V2() {
               />
             </div>
             <div>
-              <p className="mt-6 text-sm text-foreground">
+              <p className="mt-6 text-sm text-foreground/60">
                 Criando soluções digitais inovadoras e eficientes <br />
                 para impulsionar o sucesso dos meus clientes.
               </p>
@@ -107,7 +109,10 @@ export default function V2() {
             <div className="mt-6 flex flex-col items-center justify-center gap-4 lg:flex-row lg:items-center lg:justify-start">
               <div className="flex items-center justify-center">
                 <div>
-                  <GlowLinkButton href="#contato">
+                  <GlowLinkButton
+                    href="#contato"
+                    className="border-3 border-primary"
+                  >
                     Entre em Contato
                   </GlowLinkButton>
                 </div>
@@ -171,9 +176,51 @@ export default function V2() {
           </div>
         </section>
 
-        {/* <section id="sobre" className="h-screen">
-          <h2>Sobre Mim</h2>
-        </section> */}
+        <section id="sobre" className="w-full mt-18 text-foreground">
+          <div>
+            <h1 className="text-2xl font-semibold">Sobre Mim</h1>
+            <div className="h-1 w-12 bg-primary rounded-full"></div>
+          </div>
+          <div className="mt-8 flex flex-col gap-2">
+            <div className="text-foreground flex items-center justify-start gap-1 text-xl font-semibold">
+              <IoNewspaperOutline className="text-primary" />
+              <p>Bio</p>
+            </div>
+            <p className="text-foreground/60">
+              Sou um Desenvolvedor de Software com experiência em
+              desenvolvimento web. Iniciei minha jornada na programação em 2021
+              e sou apaixonado por novas tecnologias.
+              <br /> <br />
+              Estou sempre buscando aprender e me aprimorar a cada dia. Tenho
+              foco em desenvolvimento utilizando tecnologias web, como
+              JavaScript, TypeScript, ReactJS, entre outras.
+              <br /> <br />
+              Atualmente, estou estudando tecnologias para desenvolvimento
+              mobile, como Java e Kotlin. Me considero decidido e entusiasmado
+              em relação ao aprendizado de novas linguagens e tecnologias. Além
+              disso, sou adaptável a mudanças e estou sempre pronto para superar
+              qualquer desafio.
+            </p>
+          </div>
+          <div className="mt-8">
+            <CardAboutMe
+              tipoCard="Educação"
+              experiencias={[
+                {
+                  nomeInstituicao: "IFS - Instituto Federal de Sergipe",
+                  titulo: "Bacharelado em Sistemas da Informação",
+                  periodo: "2024 - 2028",
+                },
+                {
+                  nomeInstituicao:
+                    "SENAI CETCC - Centro de Educação Tecnológica e Ciências",
+                  titulo: "Técnico em Análise e Desenvolvimento de Sistemas",
+                  periodo: "2021 - 2023",
+                },
+              ]}
+            />
+          </div>
+        </section>
       </main>
     </div>
   );
