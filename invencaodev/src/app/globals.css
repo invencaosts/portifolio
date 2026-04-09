@@ -1,124 +1,36 @@
 @import "tailwindcss";
 
-/* PADRÃO DO SISTEMA WHITE */
 :root {
-  /* Tatica maluca para redefinir variaveis de tema */
-  --theme-version: 2;
-
-  /* Base */
-  --background: #fdf8f8; /* off-white quente (rosa quase imperceptível) */
-  --foreground: #2b0f12; /* vinho escuro para texto */
-
-  /* Superfícies */
-  --surface: #ffffff; /* cards */
-  --surfaceMuted: #fbeeee; /* rosa MUITO suave para seções */
-
-  /* Brand */
-  --primary: #990100; /* vermelho indiscutível */
-  --primarySoft: #fde2e2; /* vermelho suave para hovers/destaques */
-
-  /* Texto secundário */
-  --secondary: #6b2a2f; /* vinho médio */
-
-  /* Bordas / divisores */
-  --borderColor: #f2caca; /* rosa claro */
+  --background: #ffffff;
+  --foreground: #000000;
+  
+  /* Mantendo as variáveis do sistema para compatibilidade básica */
+  --primary: #990100;
+  --secondary: #6b2a2f;
+  --borderColor: #e2e8f0;
 }
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Cores do Projeto */
+  /* Cores do Projeto (V3 inicial - Minimalista) */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-surface: var(--surface);
-  --color-surfaceMuted: var(--surfaceMuted);
   --color-primary: var(--primary);
-  --color-primarySoft: var(--primarySoft);
   --color-secondary: var(--secondary);
   --color-borderColor: var(--borderColor);
 }
 
-/* PADRÃO DO SISTEMA DARK */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #16090b; /* vinho quase preto */
-    --foreground: #f5eaea; /* off-white quente */
-
-    --surface: #1f0d10; /* superfície vinho */
-    --surfaceMuted: #2a0f12; /* contraste suave */
-
-    --primary: #ff3b3b; /* vermelho vivo */
-    --primarySoft: #3a1215; /* vermelho profundo */
-
-    --secondary: #e5bcbc; /* texto secundário quente */
-
-    --borderColor: #3a1215;
-  }
-}
-
-/* CLASSES PARA TROCAS MANUAIS DE TEMA */
-html.dark {
-  --background: #16090b;
-  --foreground: #f5eaea;
-
-  --surface: #1f0d10;
-  --surfaceMuted: #2a0f12;
-
-  --primary: #ff3b3b;
-  --primarySoft: #3a1215;
-
-  --secondary: #e5bcbc;
-  --borderColor: #3a1215;
-}
-
-html.light {
-  --background: #fdf8f8;
-  --foreground: #2b0f12;
-
-  --surface: #ffffff;
-  --surfaceMuted: #fbeeee;
-
-  --primary: #990100;
-  --primarySoft: #fde2e2;
-
-  --secondary: #6b2a2f;
-  --borderColor: #f2caca;
-}
-
-@keyframes glow-move {
-  0% {
-    transform: translate(-10%, -10%) scale(1);
-  }
-  50% {
-    transform: translate(10%, 10%) scale(1.05);
-  }
-  100% {
-    transform: translate(-10%, -10%) scale(1);
-  }
-}
-
-@keyframes shadow-float {
-  0% {
-    transform: translate(12px, 12px);
-    opacity: 0.35;
-  }
-  50% {
-    transform: translate(8px, 16px);
-    opacity: 0.45;
-  }
-  100% {
-    transform: translate(12px, 12px);
-    opacity: 0.35;
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  scroll-behavior: smooth;
-}
-
-html {
-  scroll-behavior: smooth;
+  font-family: Arial, Helvetica, sans-serif;
 }
