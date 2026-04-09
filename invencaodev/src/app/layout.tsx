@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Arvo } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/componentsV2/providers/theme-provider";
 
 const arvo = Arvo({
   subsets: ["latin"],
@@ -27,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${arvo.className} antialiased`}>
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
       </body>
     </html>
   );
