@@ -1,36 +1,68 @@
 @import "tailwindcss";
 
+/* 1. Definição das Variáveis Base (Claro por padrão) */
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
-  
-  /* Mantendo as variáveis do sistema para compatibilidade básica */
-  --primary: #990100;
-  --secondary: #6b2a2f;
+  --primary: #e55b5b;
+  --secondary: #926e6d;
+  --tertiary: #986f3f;
+  --neutral: #f9f9f9;
+  --background: var(--neutral);
+  --foreground: #1a1a1a;
   --borderColor: #e2e8f0;
 }
 
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-
-  /* Cores do Projeto (V3 inicial - Minimalista) */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-borderColor: var(--borderColor);
-}
-
+/* 2. Overrides para Modo Escuro (Preferência do Sistema) */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not(.light) {
+    --primary: #ff3131;
+    --secondary: #454545;
+    --tertiary: #8b0000;
+    --neutral: #0f0f0f;
+    --background: var(--neutral);
+    --foreground: #f9f9f9;
+    --borderColor: #262626;
   }
 }
 
+/* 3. Overrides Manuais (Classes .dark e .light) */
+.dark {
+  --primary: #ff3131;
+  --secondary: #454545;
+  --tertiary: #8b0000;
+  --neutral: #0f0f0f;
+  --background: var(--neutral);
+  --foreground: #f9f9f9;
+  --borderColor: #262626;
+}
+
+.light {
+  --primary: #e55b5b;
+  --secondary: #926e6d;
+  --tertiary: #986f3f;
+  --neutral: #f9f9f9;
+  --background: var(--neutral);
+  --foreground: #1a1a1a;
+  --borderColor: #e2e8f0;
+}
+
+/* 4. Integração com o Tema do Tailwind v4 */
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-neutral: var(--neutral);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-borderColor: var(--borderColor);
+}
+
+/* 5. Estilos Base */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
