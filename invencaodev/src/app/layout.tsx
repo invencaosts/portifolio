@@ -1,10 +1,22 @@
 import type { Metadata } from "next";
-import { Arvo } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const arvo = Arvo({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -16,6 +28,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/codeIcon.svg",
   },
+  other: {
+    "material-symbols": "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap",
+  }
 };
 
 export default function RootLayout({
@@ -24,8 +39,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body className={`${arvo.className} antialiased`}>
+    <html lang="pt-br" className="scroll-smooth">
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
         {children}
       </body>
     </html>
