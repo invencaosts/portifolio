@@ -62,22 +62,33 @@ export default async function AboutBento() {
             {stats.map((stat, index) => (
               <div
                 key={stat.id}
-                className={`aspect-square bg-neutral/10 p-3 sm:p-5 md:p-6 lg:p-8 flex flex-col justify-between hover:bg-neutral/20 transition-colors group border border-borderColor/5 ${mobileOrderClasses[index]}`}
+                className={`aspect-square bento-card p-3 sm:p-5 md:p-6 lg:p-8 flex flex-col justify-between group relative overflow-hidden ${mobileOrderClasses[index]}`}
               >
-                <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary/60">
+                {/* Corner Accents */}
+                <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                
+                <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary/60 relative z-10">
                   {stat.id}_{stat.label}
                 </span>
-                <div className="font-headline text-xl sm:text-3xl md:text-4xl lg:text-7xl font-bold group-hover:text-primary transition-colors text-foreground">
+                <div className="font-headline text-xl sm:text-3xl md:text-4xl lg:text-7xl font-bold group-hover:text-primary transition-colors text-foreground relative z-10">
                   {stat.value}
                 </div>
-                <p className="font-mono text-[7px] sm:text-[9px] md:text-[10px] text-foreground/50 leading-tight uppercase">
+                <p className="font-mono text-[7px] sm:text-[9px] md:text-[10px] text-foreground/50 leading-tight uppercase relative z-10">
                   {stat.sub}
                 </p>
+                
+                {/* Hover Background Glow */}
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
             ))}
 
             {/* Card de Conexão - BIOMETRIC IDENTITY SCAN */}
-            <div className="aspect-square bg-neutral/10 relative overflow-hidden group border border-borderColor/5 order-3 lg:order-6 cursor-pointer">
+            <div className="aspect-square bento-card relative overflow-hidden group order-3 lg:order-6 cursor-pointer">
+              {/* Corner Accents */}
+              <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-primary/40"></div>
+              <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-primary/40"></div>
+
               {/* Linha de Scanner que sobe e desce */}
               <div className="absolute left-0 w-full h-[2px] bg-primary shadow-[0_0_15px_#ff3131] z-20 animate-scan"></div>
 
