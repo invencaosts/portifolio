@@ -25,7 +25,7 @@ export default async function AboutBento() {
   return (
     <section id="sobre" className="py-24 px-6 md:px-12 lg:px-24 xl:px-40 bg-neutral/5 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-0 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-16 lg:gap-y-32 items-start">
           
           {/* 1. Descrição Técnica (Topo Esquerda) */}
           <div className="lg:col-span-5 flex flex-col justify-between self-stretch">
@@ -121,7 +121,7 @@ export default async function AboutBento() {
           </div>
 
           {/* 4. Projetos Dinâmicos do GitHub (Baixo Direita) */}
-          <div className="lg:col-span-7 lg:-mt-12">
+          <div className="lg:col-span-7">
             <ProjectCarousel projects={githubData.projects} />
           </div>
         </div>
