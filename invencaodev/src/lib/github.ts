@@ -1,8 +1,15 @@
+export interface GitHubProject {
+  name: string;
+  description: string;
+  url: string;
+}
+
 export interface GitHubData {
   repos: number;
   followers: number;
   contributions: number;
   linesOfCode: number;
+  projects: GitHubProject[];
 }
 
 export async function getGitHubData(username: string): Promise<GitHubData> {
@@ -10,7 +17,7 @@ export async function getGitHubData(username: string): Promise<GitHubData> {
 
   if (!token) {
     console.warn("GITHUB_TOKEN não encontrado. Usando dados reduzidos.");
-    return { repos: 12, followers: 0, contributions: 1240, linesOfCode: 1500000 };
+    return { repos: 12, followers: 0, contributions: 1240, linesOfCode: 1500000, projects: [] };
   }
 
   const query = `
@@ -21,9 +28,12 @@ export async function getGitHubData(username: string): Promise<GitHubData> {
             totalContributions
           }
         }
-        repositories(first: 100, privacy: PUBLIC, isFork: false) {
+        repositories(first: 20, privacy: PUBLIC, isFork: false, orderBy: {field: UPDATED_AT, direction: DESC}) {
           totalCount
           nodes {
+            name
+            description
+            url
             diskUsage
           }
         }
@@ -57,18 +67,24 @@ export async function getGitHubData(username: string): Promise<GitHubData> {
     const user = result.data.user;
     
     // Calcular estimativa de linhas de código baseada no diskUsage (KB)
-    // Fator estimado: 1KB ≈ 50 linhas de código (considerando boilerplate e arquivos de config)
-    const totalDiskUsage = user.repositories.nodes.reduce((acc: number, repo: any) => acc + repo.diskUsage, 0);
+    const totalDiskUsage = user.repositories.nodes.reduce((acc: number, repo: any) => acc + (repo.diskUsage || 0), 0);
     const estimatedLOC = totalDiskUsage * 50;
+
+    const projects = user.repositories.nodes.map((repo: any) => ({
+      name: repo.name,
+      description: repo.description || "No description provided.",
+      url: repo.url,
+    }));
 
     return {
       repos: user.repositories.totalCount,
       followers: user.followers.totalCount,
       contributions: user.contributionsCollection.contributionCalendar.totalContributions,
       linesOfCode: estimatedLOC,
+      projects,
     };
   } catch (error) {
     console.error("Erro GitHub GraphQL:", error);
-    return { repos: 10, followers: 0, contributions: 1240, linesOfCode: 1200000 };
+    return { repos: 10, followers: 0, contributions: 1240, linesOfCode: 1200000, projects: [] };
   }
 }
