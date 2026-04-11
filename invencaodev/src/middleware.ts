@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const MAINTENANCE = process.env.MAINTENANCE_MODE === "true";
-
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -10,30 +8,33 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Produção SEM manutenção: libera tudo
-  if (!MAINTENANCE) {
-    return NextResponse.next();
+  // Bloquear versões legadas (v1, v2)
+  if (pathname.startsWith("/v1") || pathname.startsWith("/v2")) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return NextResponse.redirect(url);
   }
 
-  // Produção COM manutenção
-
-  // Permitir assets e rotas internas
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/favicon") ||
-    pathname.startsWith("/images") ||
-    pathname.startsWith("/api")
-  ) {
-    return NextResponse.next();
+  // Se estiver acessando a rota específica /v3, redireciona para a raiz
+  if (pathname.startsWith("/v3")) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return NextResponse.redirect(url);
   }
 
-  // Permitir apenas a home (manutenção)
-  if (pathname === "/") {
-    return NextResponse.next();
-  }
-
-  // Bloquear todo o resto
-  const url = request.nextUrl.clone();
-  url.pathname = "/";
-  return NextResponse.redirect(url);
+  return NextResponse.next();
 }
+
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - api (API routes)
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - images (project images)
+     */
+    "/((?!api|_next/static|_next/image|favicon.ico|images).*)",
+  ],
+};

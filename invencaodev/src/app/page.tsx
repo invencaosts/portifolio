@@ -1,17 +1,29 @@
-export default function Maintenance() {
+import Navbar from "@/componentsV3/Navbar";
+import Hero from "@/componentsV3/Hero";
+import LogStrip from "@/componentsV3/LogStrip";
+import AboutBento from "@/componentsV3/AboutBento";
+import Experience from "@/componentsV3/Experience";
+import Contact from "@/componentsV3/Contact";
+import Footer from "@/componentsV3/Footer";
+
+export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-6 text-center">
-      <div>
-        <h1 className="text-2xl font-bold text-primary">Estamos em obras 🚧</h1>
+    <div className="bg-background min-h-screen selection:bg-primary selection:text-white">
+      <Navbar />
+      
+      <main className="pt-20">
+        <Hero />
+        
+        <LogStrip />
+        
+        <AboutBento />
+        
+        <Experience />
 
-        <p className="mt-4 text-foreground opacity-80">
-          Estou trabalhando em uma nova versão do meu portfólio.
-          <br />
-          Agradeço sua paciência!
-        </p>
+        <Contact />
+      </main>
 
-        <p className="mt-6 text-sm opacity-60">Em breve novidades.</p>
-      </div>
-    </main>
+      <Footer />
+    </div>
   );
 }
