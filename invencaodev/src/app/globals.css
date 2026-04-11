@@ -78,4 +78,27 @@ body {
   .animate-scan {
     animation: scan 4s linear infinite;
   }
+
+  .bg-grid-pattern {
+    background-image: radial-gradient(var(--borderColor) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Bento & Card Enhancements */
+  .bento-card {
+    @apply bg-neutral/15 border border-borderColor/20 transition-all duration-300;
+  }
+
+  .bento-card:hover {
+    @apply border-primary/40 shadow-[0_0_20px_rgba(255,49,49,0.1)];
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.3; shadow: 0 0 5px var(--primary); }
+    50% { opacity: 0.8; shadow: 0 0 15px var(--primary); }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
 }

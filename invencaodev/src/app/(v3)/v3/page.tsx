@@ -3,6 +3,7 @@ import Hero from "@/componentsV3/Hero";
 import LogStrip from "@/componentsV3/LogStrip";
 import AboutBento from "@/componentsV3/AboutBento";
 import Experience from "@/componentsV3/Experience";
+import Contact from "@/componentsV3/Contact";
 import Footer from "@/componentsV3/Footer";
 
 export default function V3Page() {
@@ -18,6 +19,8 @@ export default function V3Page() {
         <AboutBento />
         
         <Experience />
+
+        <Contact />
       </main>
 
       <Footer />
