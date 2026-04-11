@@ -11,7 +11,7 @@ export default function Footer() {
         {/* Logo & Title */}
         <div className="flex flex-col items-center md:items-start gap-2">
           <div className="font-headline font-bold text-xl tracking-widest text-foreground">
-            {"< invencaodev />"}
+            {"<invencaodev />"}
           </div>
           <div className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase text-center md:text-left">
             ENGENHEIRO DE SOFTWARE \\ ARQUITETO DE SISTEMAS

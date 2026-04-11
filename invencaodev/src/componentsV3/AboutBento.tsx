@@ -34,7 +34,7 @@ export default async function AboutBento() {
                 <span className="w-2 h-2 bg-primary"></span>
                 RESUMO_OPERACIONAL
               </h2>
-              <p className="font-sans text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-foreground/80 font-light pb-4">
+              <p className="font-sans text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-2xl leading-relaxed text-foreground/80 font-light pb-4">
                 Engenheiro de Software focado em sistemas de alta criticidade (ERP & Saúde), arquitetura escalável e segurança da informação. Transformo desafios de negócio em soluções resilientes, integrando automação operacional e pesquisa em Cyber Segurança para garantir{" "}
                 <span className="text-foreground font-medium underline decoration-primary/40 decoration-2 underline-offset-8">
                   performance e integridade em alto nível.
@@ -57,7 +57,7 @@ export default async function AboutBento() {
                 <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary/60 relative z-10">
                   {stat.id}_{stat.label}
                 </span>
-                <div className="font-headline text-xl sm:text-3xl md:text-4xl lg:text-7xl font-bold group-hover:text-primary transition-colors text-foreground relative z-10">
+                <div className="font-headline text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold group-hover:text-primary transition-colors text-foreground relative z-10">
                   {stat.value}
                 </div>
                 <p className="font-mono text-[7px] sm:text-[9px] md:text-[10px] text-foreground/50 leading-tight uppercase relative z-10">
