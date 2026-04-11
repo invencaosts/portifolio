@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   }
 };
 
+import { ThemeProvider } from "@/componentsV3/providers/theme-provider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,7 +45,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
