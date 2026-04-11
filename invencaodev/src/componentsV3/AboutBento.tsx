@@ -2,7 +2,7 @@ import { getGitHubData } from "@/lib/github";
 
 export default async function AboutBento() {
   const githubData = await getGitHubData("invencaosts");
-  
+
   const techStack = ["TYPESCRIPT", "NODE.JS", "NEST.JS", "POSTGRESQL", "DOCKER", "CYBER_SECURITY", "ERP_SYSTEMS", "HEALTH_TECH"];
 
   const stats = [
@@ -25,7 +25,7 @@ export default async function AboutBento() {
     <section id="sobre" className="py-24 px-6 md:px-12 lg:px-24 xl:px-40 bg-neutral/5 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
+
           {/* 1. Descrição Técnica (Esquerda no Desktop) */}
           <div className="lg:col-span-5 flex flex-col justify-between h-full">
             <div>
@@ -80,31 +80,31 @@ export default async function AboutBento() {
             <div className="aspect-square bg-neutral/10 relative overflow-hidden group border border-borderColor/5 order-3 lg:order-6 cursor-pointer">
               {/* Linha de Scanner que sobe e desce */}
               <div className="absolute left-0 w-full h-[2px] bg-primary shadow-[0_0_15px_#ff3131] z-20 animate-scan"></div>
-              
-              <div className="absolute inset-0 p-3 sm:p-5 md:p-6 lg:p-8 flex flex-col justify-between z-10">
-                  <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary/60">06_IDENTIDADE</span>
-                  
-                  <div className="flex flex-col gap-2">
-                      <div className="flex gap-1">
-                          {[...Array(6)].map((_, i) => (
-                              <div key={i} className="w-1 h-3 sm:h-6 bg-primary/20 group-hover:bg-primary/50 transition-colors animate-pulse" style={{animationDelay: `${i * 100}ms`}}></div>
-                          ))}
-                      </div>
-                      <span className="font-mono text-[8px] sm:text-[10px] text-primary uppercase animate-pulse">Scanning...</span>
-                  </div>
 
-                  <div className="space-y-1 sm:space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-left">
-                      <div className="font-mono text-[8px] sm:text-[10px] text-white bg-primary px-1 sm:px-2 py-0.5 sm:py-1 inline-block">ACCESS_GRANTED</div>
-                      <div className="flex flex-col sm:flex-row gap-1 sm:gap-4">
-                          <a href="https://github.com/invencaosts" target="_blank" className="font-mono text-[7px] sm:text-[10px] text-foreground border-b border-primary">GITHUB</a>
-                          <a href="https://linkedin.com" target="_blank" className="font-mono text-[7px] sm:text-[10px] text-foreground border-b border-primary">LINKEDIN</a>
-                      </div>
+              <div className="absolute inset-0 p-3 sm:p-5 md:p-6 lg:p-8 flex flex-col justify-between z-10">
+                <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary/60">06_IDENTIDADE</span>
+
+                <div className="flex flex-col gap-2">
+                  <div className="flex gap-1">
+                    {[...Array(6)].map((_, i) => (
+                      <div key={i} className="w-1 h-3 sm:h-6 bg-primary/20 group-hover:bg-primary/50 transition-colors animate-pulse" style={{ animationDelay: `${i * 100}ms` }}></div>
+                    ))}
                   </div>
+                  <span className="font-mono text-[8px] sm:text-[10px] text-primary uppercase animate-pulse">Scanning...</span>
+                </div>
+
+                <div className="space-y-1 sm:space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-left">
+                  <div className="font-mono text-[8px] sm:text-[10px] text-white bg-primary px-1 sm:px-2 py-0.5 sm:py-1 inline-block">ACCESS_GRANTED</div>
+                  <div className="flex flex-col sm:flex-row gap-1 sm:gap-4">
+                    <a href="https://github.com/invencaosts" target="_blank" className="font-mono text-[7px] sm:text-[10px] text-foreground border-b border-primary">GITHUB</a>
+                    <a href="https://linkedin.com/in/invencaosts" target="_blank" className="font-mono text-[7px] sm:text-[10px] text-foreground border-b border-primary">LINKEDIN</a>
+                  </div>
+                </div>
               </div>
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ff3131_1px,transparent_1px)] [background-size:16px_16px]"></div>
             </div>
           </div>
-          
+
           {/* Hierarquia de Tecnologias (Apenas Mobile/Tablet - Abaixo do Grid) */}
           <div className="lg:hidden pt-8 border-t border-borderColor/10 w-full">
             <div className="font-mono text-sm text-foreground/40 mb-6 uppercase tracking-widest text-center">Hierarquia de Tecnologias</div>
