@@ -1,4 +1,5 @@
 import { getGitHubData } from "@/lib/github";
+import ProjectCarousel from "./ProjectCarousel";
 
 export default async function AboutBento() {
   const githubData = await getGitHubData("invencaosts");
@@ -24,40 +25,25 @@ export default async function AboutBento() {
   return (
     <section id="sobre" className="py-24 px-6 md:px-12 lg:px-24 xl:px-40 bg-neutral/5 overflow-hidden">
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-
-          {/* 1. Descrição Técnica (Esquerda no Desktop) */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-0 items-start">
+          
+          {/* 1. Descrição Técnica (Topo Esquerda) */}
+          <div className="lg:col-span-5 flex flex-col justify-between self-stretch">
             <div>
               <h2 className="font-headline text-sm uppercase tracking-[0.3em] text-primary mb-8 md:mb-12 flex items-center gap-3">
                 <span className="w-2 h-2 bg-primary"></span>
                 RESUMO_OPERACIONAL
               </h2>
-              <p className="font-sans text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-foreground/80 font-light">
+              <p className="font-sans text-xl sm:text-2xl md:text-3xl lg:text-3xl leading-relaxed text-foreground/80 font-light pb-4">
                 Engenheiro de Software focado em sistemas de alta criticidade (ERP & Saúde), arquitetura escalável e segurança da informação. Transformo desafios de negócio em soluções resilientes, integrando automação operacional e pesquisa em Cyber Segurança para garantir{" "}
                 <span className="text-foreground font-medium underline decoration-primary/40 decoration-2 underline-offset-8">
                   performance e integridade em alto nível.
                 </span>
               </p>
             </div>
-
-            {/* Hierarquia de Tecnologias (Abaixo da descrição no Desktop) */}
-            <div className="mt-12 md:mt-16 pt-8 border-t border-borderColor/10 hidden lg:block">
-              <div className="font-mono text-xs text-foreground/40 mb-6 uppercase tracking-widest">Hierarquia de Tecnologias</div>
-              <div className="flex flex-wrap gap-2">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 bg-neutral/10 font-mono text-[10px] md:text-[11px] text-foreground border border-borderColor/20 uppercase hover:border-primary/50 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
-          {/* 2. Grid de Estatísticas (Direita no Desktop) */}
+          {/* 2. Grid de Estatísticas (Topo Direita) */}
           <div className="lg:col-span-7 grid grid-cols-3 gap-1">
             {stats.map((stat, index) => (
               <div
@@ -116,19 +102,27 @@ export default async function AboutBento() {
             </div>
           </div>
 
-          {/* Hierarquia de Tecnologias (Apenas Mobile/Tablet - Abaixo do Grid) */}
-          <div className="lg:hidden pt-8 border-t border-borderColor/10 w-full">
-            <div className="font-mono text-sm text-foreground/40 mb-6 uppercase tracking-widest text-center">Hierarquia de Tecnologias</div>
-            <div className="flex flex-wrap justify-center gap-3">
+          {/* 3. Hierarquia de Tecnologias (Baixo Esquerda) */}
+          <div className="lg:col-span-5 self-start">
+            <div className="font-mono text-xs text-foreground/40 mb-4 uppercase tracking-widest">Hierarquia de Tecnologias</div>
+            <p className="font-sans text-sm text-foreground/60 leading-relaxed mb-6 max-w-md">
+              Arquitetura planejada com foco em escalabilidade e segurança. Utilizo uma stack moderna para garantir que cada linha de código contribua para a integridade e alta disponibilidade dos sistemas.
+            </p>
+            <div className="flex flex-wrap gap-2">
               {techStack.map((tech) => (
                 <span
-                  key={`m-${tech}`}
-                  className="px-4 py-2 bg-neutral/10 font-mono text-[10px] md:text-[12px] text-foreground border border-borderColor/20 uppercase"
+                  key={tech}
+                  className="px-3 py-1 bg-neutral/10 font-mono text-[10px] md:text-[11px] text-foreground border border-borderColor/20 uppercase hover:border-primary/50 transition-colors"
                 >
                   {tech}
                 </span>
               ))}
             </div>
+          </div>
+
+          {/* 4. Projetos Dinâmicos do GitHub (Baixo Direita) */}
+          <div className="lg:col-span-7 lg:-mt-12">
+            <ProjectCarousel projects={githubData.projects} />
           </div>
         </div>
       </div>

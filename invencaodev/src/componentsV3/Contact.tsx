@@ -95,7 +95,7 @@ export default function Contact() {
                 <input type="hidden" name="_next" value="https://invencaodev.com.br" />
 
                 <button 
-                  className="w-full bg-primary hover:bg-primary/90 text-white font-headline font-bold uppercase tracking-widest py-6 transition-all active:scale-[0.98] flex justify-center items-center gap-3 group/btn" 
+                  className="w-full cursor-pointer bg-primary hover:bg-primary/90 text-white font-headline font-bold uppercase tracking-widest py-6 transition-all active:scale-[0.98] flex justify-center items-center gap-3 group/btn" 
                   type="submit"
                 >
                   Transmitir Sinal
