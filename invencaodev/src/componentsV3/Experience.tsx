@@ -1,28 +1,28 @@
 import React from "react";
 import Image from "next/image";
-import { 
-  FiMap, 
-  FiZap, 
-  FiShield, 
-  FiDatabase, 
-  FiCpu, 
-  FiCloud, 
-  FiCode, 
-  FiLayers, 
-  FiLock 
+import {
+  FiMap,
+  FiZap,
+  FiShield,
+  FiDatabase,
+  FiCpu,
+  FiCloud,
+  FiCode,
+  FiLayers,
+  FiLock
 } from "react-icons/fi";
 
 const experiences = [
   {
-    year: "06/2025 — 06/2026",
-    company: "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
+    year: "03/2026 — Atual",
+    company: "WM Saúde - Gestão e Tecnologia",
     role: "Engenheiro de Software",
     description: [
-      { icon: "map", text: "Desenvolvimento de uma aplicação para mapeamento de terras indígenas griladas." },
-      { icon: "bolt", text: "Otimização de consultas SQL e criação de índices para melhorar a performance da aplicação." },
-      { icon: "shield", text: "Implementação de protocolos de segurança e conformidade de dados sensíveis." },
+      { icon: "code", text: "Desenvolvimento e manutenção em sistema de alta criticidade para o setor da Saúde" },
+      { icon: "layers", text: "Migração de arquitetura legada para uma arquitetura escalável e resiliente" },
+      { icon: "security", text: "Implementação de protocolos de segurança e conformidade de dados sensíveis." },
     ],
-    logo: "/images/cnpq_logo.jpeg",
+    logo: "/images/wm_sade_logo.jpeg",
   },
   {
     year: "12/2025 — 03/2026",
@@ -36,15 +36,15 @@ const experiences = [
     logo: "/images/wm_sade_logo.jpeg",
   },
   {
-    year: "03/2026 — Atual",
-    company: "WM Saúde - Gestão e Tecnologia",
+    year: "06/2025 — 06/2026",
+    company: "CNPq - Conselho Nacional de Desenvolvimento Científico e Tecnológico",
     role: "Engenheiro de Software",
     description: [
-      { icon: "code", text: "Desenvolvimento e manutenção em sistema de alta criticidade para o setor da Saúde" },
-      { icon: "layers", text: "Migração de arquitetura legada para uma arquitetura escalável e resiliente" },
-      { icon: "security", text: "Implementação de protocolos de segurança e conformidade de dados sensíveis." },
+      { icon: "map", text: "Desenvolvimento de uma aplicação para mapeamento de terras indígenas griladas." },
+      { icon: "bolt", text: "Otimização de consultas SQL e criação de índices para melhorar a performance da aplicação." },
+      { icon: "shield", text: "Implementação de protocolos de segurança e conformidade de dados sensíveis." },
     ],
-    logo: "/images/wm_sade_logo.jpeg",
+    logo: "/images/cnpq_logo.jpeg",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Experience() {
                       } border-primary relative group`}>
                       {/* Corner Accents */}
                       <div className={`absolute top-0 ${isEven ? 'left-0' : 'right-0'} w-2 h-2 border-t ${isEven ? 'border-l' : 'border-r'} border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity`}></div>
-                      
+
                       <span className="font-mono text-xs text-primary mb-2 block">{exp.year}</span>
                       <h3 className="font-headline text-2xl font-bold mb-1 tracking-tight text-foreground">{exp.company}</h3>
                       <p className="font-mono text-sm text-foreground/60 mb-6 uppercase">{exp.role}</p>
