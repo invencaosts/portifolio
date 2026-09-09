@@ -8,7 +8,7 @@ export default function Hero() {
     <section id="inicio" className="relative min-h-[85vh] flex flex-col justify-start pt-24 md:pt-32 pb-16 px-6 md:px-20 lg:px-32 xl:px-40 overflow-hidden bg-background">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-8 lg:pb-12 text-left order-1">
-          <div className="mb-6 flex items-center justify-start gap-3 font-mono text-primary text-xs md:text-sm">
+          <div className="mb-6 flex items-center justify-start gap-3 font-mono text-primary-text text-xs md:text-sm">
             <span>guilherme@invencaodev:~$</span>
             <span className="text-foreground/60">whoami</span>
           </div>
@@ -18,7 +18,7 @@ export default function Hero() {
             <span className="text-foreground/25">DA_INVENÇÃO</span>
           </h1>
 
-          <div className="font-mono text-base sm:text-lg md:text-xl lg:text-2xl text-primary tracking-tight uppercase min-h-[3em] sm:min-h-[1.5em] flex items-center">
+          <div className="font-mono text-base sm:text-lg md:text-xl lg:text-2xl text-primary-text tracking-tight uppercase min-h-[3em] sm:min-h-[1.5em] flex items-center">
             <span className="text-foreground/40 mr-2">&gt;</span>
             <TypeAnimation
               sequence={[
@@ -40,7 +40,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-10 flex flex-wrap gap-2 font-mono text-[10px] uppercase tracking-widest">
-            <span className="border border-primary text-primary px-3 py-1.5 flex items-center gap-2">
+            <span className="border border-primary text-primary-text px-3 py-1.5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-primary animate-cursor"></span>
               Disponível
             </span>
@@ -57,12 +57,13 @@ export default function Hero() {
               src="/MinhaFoto.jpg"
               fill
               priority
+              fetchPriority="high"
               sizes="(min-width: 1024px) 420px, (min-width: 640px) 320px, 280px"
             />
 
             <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-3 py-2 bg-background/90 border-b border-foreground/80 font-mono text-[9px] uppercase tracking-widest text-foreground/60">
               <span>IMG_001.JPG</span>
-              <span className="text-primary">●REC</span>
+              <span className="text-primary-text">●REC</span>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 font-mono text-[9px] md:text-[10px] font-bold text-white uppercase bg-primary px-3 py-2.5 border-t border-foreground/80">

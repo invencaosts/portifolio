@@ -20,16 +20,16 @@ export default function Footer() {
 
         {/* Social Links */}
         <div className="flex gap-6 items-center">
-          <a href="mailto:gui.inven@gmail.com" title="Email" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary transition-all duration-300">
+          <a href="mailto:gui.inven@gmail.com" title="Email" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
             <FiMail className="w-5 h-5" />
           </a>
-          <a href="https://api.whatsapp.com/send?phone=5579999684200&text=Oi,%20vim%20pelo%20seu%20portifolio%20e%20gostaria%20de%20conversar%20mais%20sobre." target="_blank" title="WhatsApp" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary transition-all duration-300">
+          <a href="https://api.whatsapp.com/send?phone=5579999684200&text=Oi,%20vim%20pelo%20seu%20portifolio%20e%20gostaria%20de%20conversar%20mais%20sobre." target="_blank" title="WhatsApp" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
             <FaWhatsapp className="w-5 h-5" />
           </a>
-          <a href="https://github.com/invencaosts" target="_blank" title="GitHub" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary transition-all duration-300">
+          <a href="https://github.com/invencaosts" target="_blank" title="GitHub" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
             <FiGithub className="w-5 h-5" />
           </a>
-          <a href="https://www.linkedin.com/in/guilherme-da-invencao-santos-556497282/" target="_blank" title="LinkedIn" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary transition-all duration-300">
+          <a href="https://www.linkedin.com/in/guilherme-da-invencao-santos-556497282/" target="_blank" title="LinkedIn" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
             <FiLinkedin className="w-5 h-5" />
           </a>
         </div>
@@ -41,7 +41,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 bg-primary animate-cursor"></span>
-            <span className="font-mono text-[9px] text-primary uppercase tracking-widest leading-none">Status: Ativo</span>
+            <span className="font-mono text-[9px] text-primary-text uppercase tracking-widest leading-none">Status: Ativo</span>
           </div>
         </div>
       </div>

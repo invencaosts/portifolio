@@ -64,7 +64,7 @@ export default function Experience() {
   return (
     <section id="experiencia" className="py-24 px-6 md:px-12 lg:px-24 xl:px-40 bg-neutral/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-headline text-sm uppercase tracking-[0.3em] text-primary mb-16 md:mb-24 flex items-center gap-3">
+        <h2 className="font-headline text-sm uppercase tracking-[0.3em] text-primary-text mb-16 md:mb-24 flex items-center gap-3">
           <span className="w-2 h-2 bg-primary animate-pulse"></span>
           TRAJETÓRIA_PROFISSIONAL
         </h2>
@@ -91,14 +91,14 @@ export default function Experience() {
                       {/* Corner Accents */}
                       <div className={`absolute top-0 ${isEven ? 'left-0' : 'right-0'} w-2 h-2 border-t ${isEven ? 'border-l' : 'border-r'} border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity`}></div>
 
-                      <span className="font-mono text-xs text-primary mb-2 block">{exp.year}</span>
+                      <span className="font-mono text-xs text-primary-text mb-2 block">{exp.year}</span>
                       <h3 className="font-headline text-2xl font-bold mb-1 tracking-tight text-foreground">{exp.company}</h3>
                       <p className="font-mono text-sm text-foreground/60 mb-6 uppercase">{exp.role}</p>
 
                       <ul className={`text-foreground/70 text-sm space-y-3 leading-relaxed ${isEven ? "md:ml-auto" : ""}`}>
                         {exp.description.map((item, i) => (
                           <li key={i} className={`flex items-start gap-3 ${isEven ? "md:flex-row-reverse" : ""}`}>
-                            <span className="text-primary mt-1 flex-shrink-0">
+                            <span className="text-primary-text mt-1 flex-shrink-0">
                               {iconMap[item.icon] || <FiCode className="w-4 h-4" />}
                             </span>
                             <span className="group-hover:text-foreground transition-colors">{item.text}</span>
@@ -120,6 +120,7 @@ export default function Experience() {
                           src={exp.logo}
                           alt={`${exp.company} Logo`}
                           fill
+                          sizes="128px"
                           className="object-contain opacity-40 group-hover:opacity-100 grayscale-[50%] group-hover:grayscale-0 transition-all duration-500"
                         />
                       </div>
