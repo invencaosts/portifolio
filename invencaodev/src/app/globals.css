@@ -45,6 +45,50 @@
   --borderColor: #e2e8f0;
 }
 
+/* 3b. V4 — Terminal Brutalista (escopo isolado, não afeta V1/V2/V3) */
+[data-scope="v4"] {
+  --primary: #ff4520;
+  --secondary: #6e6a62;
+  --tertiary: #986f3f;
+  --neutral: #eae7df;
+  --background: #f2f0ea;
+  --foreground: #14140f;
+  --borderColor: #d9d5cb;
+  --font-headline: var(--font-jetbrains-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) [data-scope="v4"] {
+    --primary: #ff5b33;
+    --secondary: #6b6963;
+    --tertiary: #8b0000;
+    --neutral: #1b1a1e;
+    --background: #0c0c0e;
+    --foreground: #ededed;
+    --borderColor: #2b292e;
+  }
+}
+
+html.dark [data-scope="v4"] {
+  --primary: #ff5b33;
+  --secondary: #6b6963;
+  --tertiary: #8b0000;
+  --neutral: #1b1a1e;
+  --background: #0c0c0e;
+  --foreground: #ededed;
+  --borderColor: #2b292e;
+}
+
+html.light [data-scope="v4"] {
+  --primary: #ff4520;
+  --secondary: #6e6a62;
+  --tertiary: #986f3f;
+  --neutral: #eae7df;
+  --background: #f2f0ea;
+  --foreground: #14140f;
+  --borderColor: #d9d5cb;
+}
+
 /* 4. Integração com o Tema do Tailwind v4 */
 @theme {
   --font-sans: var(--font-inter);
@@ -100,5 +144,14 @@ body {
 
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes cursor-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  .animate-cursor {
+    animation: cursor-blink 1s step-end infinite;
   }
 }
