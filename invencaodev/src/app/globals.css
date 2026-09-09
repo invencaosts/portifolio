@@ -47,7 +47,7 @@
 
 /* 3b. V4 — Terminal Brutalista (escopo isolado, não afeta V1/V2/V3) */
 [data-scope="v4"] {
-  --primary: #e01515;
+  --primary: #cc0002;
   --secondary: #6e6a62;
   --tertiary: #986f3f;
   --neutral: #eae7df;
@@ -59,7 +59,7 @@
 
 @media (prefers-color-scheme: dark) {
   html:not(.light) [data-scope="v4"] {
-    --primary: #ff2e2e;
+    --primary: #cc0002;
     --secondary: #6b6963;
     --tertiary: #8b0000;
     --neutral: #1b1a1e;
@@ -70,7 +70,7 @@
 }
 
 html.dark [data-scope="v4"] {
-  --primary: #ff2e2e;
+  --primary: #cc0002;
   --secondary: #6b6963;
   --tertiary: #8b0000;
   --neutral: #1b1a1e;
@@ -80,7 +80,7 @@ html.dark [data-scope="v4"] {
 }
 
 html.light [data-scope="v4"] {
-  --primary: #e01515;
+  --primary: #cc0002;
   --secondary: #6e6a62;
   --tertiary: #986f3f;
   --neutral: #eae7df;
