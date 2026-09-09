@@ -1,29 +1,32 @@
-import Navbar from "@/componentsV3/Navbar";
-import Hero from "@/componentsV3/Hero";
-import LogStrip from "@/componentsV3/LogStrip";
-import AboutBento from "@/componentsV3/AboutBento";
-import Experience from "@/componentsV3/Experience";
-import Contact from "@/componentsV3/Contact";
-import Footer from "@/componentsV3/Footer";
+import Navbar from "@/componentsV4/Navbar";
+import Hero from "@/componentsV4/Hero";
+import LogStrip from "@/componentsV4/LogStrip";
+import AboutBento from "@/componentsV4/AboutBento";
+import Experience from "@/componentsV4/Experience";
+import Contact from "@/componentsV4/Contact";
+import Footer from "@/componentsV4/Footer";
+import { ThemeProvider } from "@/componentsV4/providers/theme-provider";
 
 export default function Home() {
   return (
-    <div className="bg-background min-h-screen selection:bg-primary selection:text-white">
-      <Navbar />
-      
-      <main className="pt-20">
-        <Hero />
-        
-        <LogStrip />
-        
-        <AboutBento />
-        
-        <Experience />
+    <ThemeProvider>
+      <div data-scope="v4" className="bg-background text-foreground min-h-screen selection:bg-primary selection:text-white font-sans">
+        <Navbar />
 
-        <Contact />
-      </main>
+        <main className="pt-20">
+          <Hero />
 
-      <Footer />
-    </div>
+          <LogStrip />
+
+          <AboutBento />
+
+          <Experience />
+
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
