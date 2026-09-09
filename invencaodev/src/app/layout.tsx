@@ -96,10 +96,6 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   manifest: "/manifest.webmanifest",
-  // Trocar pelo código real gerado em search.google.com/search-console (Propriedade > Verificação > tag HTML)
-  verification: {
-    google: "COLOQUE_AQUI_O_CODIGO_DO_SEARCH_CONSOLE",
-  },
   other: {
     "material-symbols": "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap",
   }
