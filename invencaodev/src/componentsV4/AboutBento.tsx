@@ -30,7 +30,7 @@ export default async function AboutBento() {
           {/* 1. Descrição Técnica (Topo Esquerda) */}
           <div className="lg:col-span-5 flex flex-col justify-between self-stretch">
             <div>
-              <h2 className="font-headline text-sm uppercase tracking-[0.3em] text-primary mb-8 md:mb-12 flex items-center gap-3">
+              <h2 className="font-headline text-sm uppercase tracking-[0.3em] text-primary-text mb-8 md:mb-12 flex items-center gap-3">
                 <span className="w-2 h-2 bg-primary"></span>
                 RESUMO_OPERACIONAL
               </h2>
@@ -54,10 +54,10 @@ export default async function AboutBento() {
                 <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 
-                <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary/60 relative z-10">
+                <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary-text/60 relative z-10">
                   {stat.id}_{stat.label}
                 </span>
-                <div className="font-headline text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold group-hover:text-primary transition-colors text-foreground relative z-10">
+                <div className="font-headline text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold group-hover:text-primary-text transition-colors text-foreground relative z-10">
                   {stat.value}
                 </div>
                 <p className="font-mono text-[7px] sm:text-[9px] md:text-[10px] text-foreground/50 leading-tight uppercase relative z-10">
@@ -79,7 +79,7 @@ export default async function AboutBento() {
               <div className="absolute left-0 w-full h-[2px] bg-primary shadow-[0_0_15px_#ff3131] z-20 animate-scan"></div>
 
               <div className="absolute inset-0 p-3 sm:p-5 md:p-6 lg:p-8 flex flex-col justify-between z-10">
-                <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary/60">06_IDENTIDADE</span>
+                <span className="font-mono text-[8px] sm:text-[10px] md:text-xs text-primary-text/60">06_IDENTIDADE</span>
 
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-1">
@@ -87,7 +87,7 @@ export default async function AboutBento() {
                       <div key={i} className="w-1 h-3 sm:h-6 bg-primary/20 group-hover:bg-primary/50 transition-colors animate-pulse" style={{ animationDelay: `${i * 100}ms` }}></div>
                     ))}
                   </div>
-                  <span className="font-mono text-[8px] sm:text-[10px] text-primary uppercase animate-pulse">Scanning...</span>
+                  <span className="font-mono text-[8px] sm:text-[10px] text-primary-text uppercase animate-pulse">Scanning...</span>
                 </div>
 
                 <div className="space-y-1 sm:space-y-2 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 text-left">

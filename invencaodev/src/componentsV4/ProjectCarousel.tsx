@@ -34,16 +34,16 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
             className="flex-shrink-0 w-64 md:w-80 bento-card p-6 group/item hover:border-primary/50 transition-all snap-start relative overflow-hidden"
           >
             {/* Index indicator */}
-            <div className="absolute top-0 right-0 p-3 font-mono text-[8px] text-foreground/20 group-hover/item:text-primary/40 transition-colors">
+            <div className="absolute top-0 right-0 p-3 font-mono text-[8px] text-foreground/20 group-hover/item:text-primary-text/40 transition-colors">
               PRJ_{String(index + 1).padStart(2, '0')}
             </div>
 
             <div className="flex items-start justify-between mb-4">
-              <FiGithub className="text-primary w-5 h-5" />
-              <FiExternalLink className="text-foreground/20 group-hover/item:text-primary transition-colors w-4 h-4" />
+              <FiGithub className="text-primary-text w-5 h-5" />
+              <FiExternalLink className="text-foreground/20 group-hover/item:text-primary-text transition-colors w-4 h-4" />
             </div>
             
-            <h3 className="font-headline font-bold text-lg mb-2 text-foreground group-hover/item:text-primary transition-colors truncate">
+            <h3 className="font-headline font-bold text-lg mb-2 text-foreground group-hover/item:text-primary-text transition-colors truncate">
               {project.name}
             </h3>
             

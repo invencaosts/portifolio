@@ -22,7 +22,7 @@ export default function Contact() {
         <div className="mb-20">
           <div className="flex items-center gap-4 mb-4">
             <span className="w-12 h-[1px] bg-primary"></span>
-            <span className="font-mono text-primary text-sm tracking-widest uppercase">Protocolo_de_Comunicação</span>
+            <span className="font-mono text-primary-text text-sm tracking-widest uppercase">Protocolo_de_Comunicação</span>
           </div>
           <h2 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-foreground mb-6">
             Estabelecer <br /> <span className="text-foreground/30 italic">Conexão.</span>
@@ -52,7 +52,7 @@ export default function Contact() {
               <div className="space-y-8">
                 {/* Name Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary transition-colors">01. Identificação</label>
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">01. Identificação</label>
                   <input 
                     name="name"
                     required
@@ -64,7 +64,7 @@ export default function Contact() {
                 
                 {/* Email Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary transition-colors">02. Endereço de Retorno (Email)</label>
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">02. Endereço de Retorno (Email)</label>
                   <input 
                     name="email"
                     required
@@ -76,7 +76,7 @@ export default function Contact() {
                 
                 {/* Message Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary transition-colors">03. Payload da Mensagem</label>
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">03. Payload da Mensagem</label>
                   <textarea 
                     name="message"
                     required
@@ -108,7 +108,7 @@ export default function Contact() {
             {/* Direct Channels - ORDERED FIRST ON MOBILE */}
             <div className="space-y-4 order-1 lg:order-2">
               <h3 className="font-headline font-bold text-foreground uppercase text-xs tracking-widest mb-2 flex items-center gap-2">
-                <FiTerminal className="text-primary text-sm" />
+                <FiTerminal className="text-primary-text text-sm" />
                 Canais Diretos
               </h3>
               
@@ -118,7 +118,7 @@ export default function Contact() {
                 className="flex items-center justify-between p-6 bento-card hover:bg-neutral/20 transition-colors group"
               >
                 <div className="flex items-center gap-4">
-                  <FiMail className="text-foreground/40 group-hover:text-primary transition-colors" />
+                  <FiMail className="text-foreground/40 group-hover:text-primary-text transition-colors" />
                   <span className="font-mono text-sm uppercase tracking-tight">Email</span>
                 </div>
                 <span className="text-foreground/30 font-mono text-[10px]">gui.inven@gmail.com</span>
@@ -131,10 +131,10 @@ export default function Contact() {
                 className="flex items-center justify-between p-6 bento-card hover:bg-neutral/20 transition-colors group"
               >
                 <div className="flex items-center gap-4">
-                  <FiGithub className="text-foreground/40 group-hover:text-primary transition-colors" />
+                  <FiGithub className="text-foreground/40 group-hover:text-primary-text transition-colors" />
                   <span className="font-mono text-sm uppercase tracking-tight">GitHub</span>
                 </div>
-                <FiExternalLink className="text-foreground/20 group-hover:text-primary transition-colors w-4 h-4" />
+                <FiExternalLink className="text-foreground/20 group-hover:text-primary-text transition-colors w-4 h-4" />
               </a>
 
               {/* LinkedIn */}
@@ -144,10 +144,10 @@ export default function Contact() {
                 className="flex items-center justify-between p-6 bento-card hover:bg-neutral/20 transition-colors group"
               >
                 <div className="flex items-center gap-4">
-                  <FiLinkedin className="text-foreground/40 group-hover:text-primary transition-colors" />
+                  <FiLinkedin className="text-foreground/40 group-hover:text-primary-text transition-colors" />
                   <span className="font-mono text-sm uppercase tracking-tight">LinkedIn</span>
                 </div>
-                <FiExternalLink className="text-foreground/20 group-hover:text-primary transition-colors w-4 h-4" />
+                <FiExternalLink className="text-foreground/20 group-hover:text-primary-text transition-colors w-4 h-4" />
               </a>
 
               {/* WhatsApp - REPLACED INSTAGRAM */}
@@ -167,7 +167,7 @@ export default function Contact() {
             {/* Operational Status Panel - ORDERED SECOND ON MOBILE */}
             <div className="bento-card p-8 relative overflow-hidden group order-2 lg:order-1 flex-grow">
               <h3 className="font-headline font-bold text-foreground uppercase text-xs tracking-widest mb-6 flex items-center gap-2">
-                <FiActivity className="text-primary text-sm" />
+                <FiActivity className="text-primary-text text-sm" />
                 Status_Operacional
               </h3>
               
@@ -175,7 +175,7 @@ export default function Contact() {
                 <div className="flex items-center justify-between border-b border-borderColor/10 pb-4">
                   <span className="font-mono text-[10px] text-foreground/40 uppercase">Localização</span>
                   <span className="font-mono text-xs text-foreground flex items-center gap-2">
-                    <FiMapPin className="text-primary" />
+                    <FiMapPin className="text-primary-text" />
                     ARACAJU, SE - BR
                   </span>
                 </div>

@@ -53,6 +53,10 @@
    senão os componentes continuam herdando o --color-primary já resolvido lá do :root. */
 [data-scope="v4"] {
   --primary: #cc0002;
+  /* --primary-text: variante de #cc0002 só pra cor de letra — em texto
+     pequeno sobre fundo escuro o vermelho puro não bate 4.5:1 de contraste
+     (WCAG AA). No claro o próprio #cc0002 já passa, então repete o valor. */
+  --primary-text: #cc0002;
   --secondary: #6e6a62;
   --tertiary: #986f3f;
   --neutral: #eae7df;
@@ -61,6 +65,7 @@
   --borderColor: #d9d5cb;
   --font-headline: var(--font-jetbrains-mono);
   --color-primary: var(--primary);
+  --color-primary-text: var(--primary-text);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);
@@ -72,6 +77,7 @@
 @media (prefers-color-scheme: dark) {
   html:not(.light) [data-scope="v4"] {
     --primary: #cc0002;
+    --primary-text: #ff5c5c;
     --secondary: #6b6963;
     --tertiary: #8b0000;
     --neutral: #1b1a1e;
@@ -79,6 +85,7 @@
     --foreground: #ededed;
     --borderColor: #2b292e;
     --color-primary: var(--primary);
+    --color-primary-text: var(--primary-text);
     --color-secondary: var(--secondary);
     --color-tertiary: var(--tertiary);
     --color-neutral: var(--neutral);
@@ -90,6 +97,7 @@
 
 html.dark [data-scope="v4"] {
   --primary: #cc0002;
+  --primary-text: #ff5c5c;
   --secondary: #6b6963;
   --tertiary: #8b0000;
   --neutral: #1b1a1e;
@@ -97,6 +105,7 @@ html.dark [data-scope="v4"] {
   --foreground: #ededed;
   --borderColor: #2b292e;
   --color-primary: var(--primary);
+  --color-primary-text: var(--primary-text);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);
@@ -107,6 +116,7 @@ html.dark [data-scope="v4"] {
 
 html.light [data-scope="v4"] {
   --primary: #cc0002;
+  --primary-text: #cc0002;
   --secondary: #6e6a62;
   --tertiary: #986f3f;
   --neutral: #eae7df;
@@ -114,6 +124,7 @@ html.light [data-scope="v4"] {
   --foreground: #14140f;
   --borderColor: #d9d5cb;
   --color-primary: var(--primary);
+  --color-primary-text: var(--primary-text);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);
@@ -129,6 +140,7 @@ html.light [data-scope="v4"] {
   --font-mono: var(--font-jetbrains-mono);
 
   --color-primary: var(--primary);
+  --color-primary-text: var(--primary-text, var(--primary));
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);

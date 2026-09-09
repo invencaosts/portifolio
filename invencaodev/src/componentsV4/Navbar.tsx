@@ -58,7 +58,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="font-mono uppercase tracking-tighter text-sm text-foreground/70 hover:text-primary transition-all duration-200"
+              className="font-mono uppercase tracking-tighter text-sm text-foreground/70 hover:text-primary-text transition-all duration-200"
             >
               {link.name}
             </Link>
@@ -72,9 +72,9 @@ export default function Navbar() {
             title="Alternar Tema"
           >
             {theme === "dark" ? (
-              <FiSun className="w-5 h-5 text-primary" />
+              <FiSun className="w-5 h-5 text-primary-text" />
             ) : (
-              <FiMoon className="w-5 h-5 text-primary" />
+              <FiMoon className="w-5 h-5 text-primary-text" />
             )}
           </button>
 
@@ -90,6 +90,8 @@ export default function Navbar() {
           <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
           </button>
@@ -107,7 +109,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="font-mono uppercase tracking-widest text-2xl text-foreground/80 hover:text-primary transition-colors"
+              className="font-mono uppercase tracking-widest text-2xl text-foreground/80 hover:text-primary-text transition-colors"
             >
               {link.name}
             </Link>
