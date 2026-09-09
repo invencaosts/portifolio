@@ -31,8 +31,22 @@ export default function Navbar() {
         className={`fixed top-0 w-full z-50 transition-all duration-300 flex justify-between items-center px-6 md:px-12 h-20 
         ${scrolled ? "bg-background/80 backdrop-blur-xl" : "bg-transparent"}`}
       >
-        <div className="font-headline font-bold text-foreground tracking-widest text-lg">
-          {"<invencaodev />"}
+        <div className="flex items-center gap-2.5">
+          <svg viewBox="0 0 64 64" className="w-6 h-6 shrink-0" aria-hidden="true">
+            <rect x="24" y="24" width="16" height="16" className="fill-primary" />
+            <path
+              d="M32 24 V14 M32 50 V40 M24 32 H14 M50 32 H40"
+              className="stroke-foreground"
+              strokeWidth="3.2"
+              strokeLinecap="square"
+              fill="none"
+            />
+            <rect x="12" y="12" width="4" height="4" className="fill-foreground" />
+            <rect x="48" y="48" width="4" height="4" className="fill-foreground" />
+          </svg>
+          <div className="font-headline font-bold text-foreground tracking-widest text-lg">
+            {"<invencaodev />"}
+          </div>
         </div>
 
         {/* Desktop Links */}
