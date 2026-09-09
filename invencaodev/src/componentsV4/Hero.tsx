@@ -52,7 +52,7 @@ export default function Hero() {
         <div className="lg:col-span-4 relative flex justify-center lg:justify-end order-2 mt-8 lg:mt-0">
           <div className="aspect-[4/5] w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[420px] bg-neutral relative overflow-hidden border border-foreground/80">
             <Image
-              alt="Retrato de Guilherme da Invenção, Engenheiro de Software especializado em sistemas críticos e segurança da informação"
+              alt="Guilherme da Invenção palestrando sobre desenvolvimento de sistemas, Engenheiro de Software especializado em sistemas críticos e segurança da informação"
               className="object-cover grayscale-[15%]"
               src="/MinhaFoto.jpg"
               fill
