@@ -14,7 +14,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
   return (
     <div className="w-full group">
       <div className="flex items-center justify-between mb-6">
-        <div className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest">
+        <div className="font-mono text-[10px] text-foreground/60 uppercase tracking-widest">
           PROJETOS QUE QUERO DESTACAR
         </div>
         <div className="flex gap-2">
@@ -34,7 +34,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
             className="flex-shrink-0 w-64 md:w-80 bento-card p-6 group/item hover:border-primary/50 transition-all snap-start relative overflow-hidden"
           >
             {/* Index indicator */}
-            <div className="absolute top-0 right-0 p-3 font-mono text-[8px] text-foreground/20 group-hover/item:text-primary-text/40 transition-colors">
+            <div className="absolute top-0 right-0 p-3 font-mono text-[8px] text-foreground/60 group-hover/item:text-primary-text/40 transition-colors">
               PRJ_{String(index + 1).padStart(2, '0')}
             </div>
 
@@ -47,7 +47,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
               {project.name}
             </h3>
             
-            <p className="font-sans text-xs text-foreground/50 line-clamp-2 leading-relaxed">
+            <p className="font-sans text-xs text-foreground/60 line-clamp-2 leading-relaxed">
               {project.description}
             </p>
 
@@ -57,7 +57,7 @@ export default function ProjectCarousel({ projects }: ProjectCarouselProps) {
         ))}
       </div>
 
-      <div className="font-mono text-[8px] text-foreground/20 mt-2 uppercase tracking-tight text-right">
+      <div className="font-mono text-[8px] text-foreground/60 mt-2 uppercase tracking-tight text-right">
         Scroll_to_explore {">>"}
       </div>
     </div>

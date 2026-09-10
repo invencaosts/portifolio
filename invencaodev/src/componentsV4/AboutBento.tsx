@@ -60,7 +60,7 @@ export default async function AboutBento() {
                 <div className="font-headline text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold group-hover:text-primary-text transition-colors text-foreground relative z-10">
                   {stat.value}
                 </div>
-                <p className="font-mono text-[7px] sm:text-[9px] md:text-[10px] text-foreground/50 leading-tight uppercase relative z-10">
+                <p className="font-mono text-[7px] sm:text-[9px] md:text-[10px] text-foreground/60 leading-tight uppercase relative z-10">
                   {stat.sub}
                 </p>
                 
@@ -104,7 +104,7 @@ export default async function AboutBento() {
 
           {/* 3. Hierarquia de Tecnologias (Baixo Esquerda) */}
           <div className="lg:col-span-5 self-start">
-            <div className="font-mono text-xs text-foreground/40 mb-4 uppercase tracking-widest">Hierarquia de Tecnologias</div>
+            <div className="font-mono text-xs text-foreground/60 mb-4 uppercase tracking-widest">Hierarquia de Tecnologias</div>
             <p className="font-sans text-sm text-foreground/60 leading-relaxed mb-6 max-w-md">
               Arquitetura planejada com foco em escalabilidade e segurança. Utilizo uma stack moderna para garantir que cada linha de código contribua para a integridade e alta disponibilidade dos sistemas.
             </p>

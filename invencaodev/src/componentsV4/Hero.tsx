@@ -15,11 +15,11 @@ export default function Hero() {
 
           <h1 className="font-headline text-4xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold tracking-tighter leading-[0.95] mb-8 text-foreground uppercase">
             GUILHERME<br />
-            <span className="text-foreground/25">DA_INVENÇÃO</span>
+            <span className="text-foreground/60">DA_INVENÇÃO</span>
           </h1>
 
           <div className="font-mono text-base sm:text-lg md:text-xl lg:text-2xl text-primary-text tracking-tight uppercase min-h-[3em] sm:min-h-[1.5em] flex items-center">
-            <span className="text-foreground/40 mr-2">&gt;</span>
+            <span className="text-foreground/60 mr-2">&gt;</span>
             <TypeAnimation
               sequence={[
                 "Arquiteto de Sistemas",
@@ -44,8 +44,8 @@ export default function Hero() {
               <span className="w-1.5 h-1.5 bg-primary animate-cursor"></span>
               Disponível
             </span>
-            <span className="border border-borderColor/40 text-foreground/50 px-3 py-1.5">Aracaju_SE_BR</span>
-            <span className="border border-borderColor/40 text-foreground/50 px-3 py-1.5">UTC-03:00</span>
+            <span className="border border-borderColor/40 text-foreground/60 px-3 py-1.5">Aracaju_SE_BR</span>
+            <span className="border border-borderColor/40 text-foreground/60 px-3 py-1.5">UTC-03:00</span>
           </div>
         </div>
 

@@ -18,7 +18,7 @@ export default function LogStrip() {
         {logs.map((log, index) => (
           <span
             key={index}
-            className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest flex items-center gap-2"
+            className="font-mono text-[10px] text-foreground/60 uppercase tracking-widest flex items-center gap-2"
           >
             <span className="w-1 h-1 bg-primary"></span>
             {log}
@@ -28,7 +28,7 @@ export default function LogStrip() {
         {logs.map((log, index) => (
           <span
             key={`repeat-${index}`}
-            className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest flex items-center gap-2"
+            className="font-mono text-[10px] text-foreground/60 uppercase tracking-widest flex items-center gap-2"
           >
             <span className="w-1 h-1 bg-primary"></span>
             {log}

@@ -25,7 +25,7 @@ export default function Contact() {
             <span className="font-mono text-primary-text text-sm tracking-widest uppercase">Protocolo_de_Comunicação</span>
           </div>
           <h2 className="font-headline text-5xl md:text-7xl font-bold tracking-tighter text-foreground mb-6">
-            Estabelecer <br /> <span className="text-foreground/30 italic">Conexão.</span>
+            Estabelecer <br /> <span className="text-foreground/60 italic">Conexão.</span>
           </h2>
           <p className="font-sans text-xl text-foreground/60 max-w-2xl leading-relaxed">
             Pronto para arquitetar sistemas de alta performance e resolver desafios complexos de engenharia. Envie sua mensagem abaixo.
@@ -37,7 +37,7 @@ export default function Contact() {
           {/* Contact Form Side */}
           <div className="lg:col-span-7 bento-card p-8 md:p-12 relative flex flex-col h-full group">
             <div className="absolute top-0 right-0 p-4">
-              <span className="font-mono text-[10px] text-foreground/30 uppercase tracking-widest">Form_ID: 0x2A4F</span>
+              <span className="font-mono text-[10px] text-foreground/60 uppercase tracking-widest">Form_ID: 0x2A4F</span>
             </div>
             
             {/* Corner Accents */}
@@ -52,7 +52,7 @@ export default function Contact() {
               <div className="space-y-8">
                 {/* Name Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">01. Identificação</label>
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/60 group-focus-within/field:text-primary-text transition-colors">01. Identificação</label>
                   <input 
                     name="name"
                     required
@@ -64,7 +64,7 @@ export default function Contact() {
                 
                 {/* Email Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">02. Endereço de Retorno (Email)</label>
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/60 group-focus-within/field:text-primary-text transition-colors">02. Endereço de Retorno (Email)</label>
                   <input 
                     name="email"
                     required
@@ -76,7 +76,7 @@ export default function Contact() {
                 
                 {/* Message Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">03. Payload da Mensagem</label>
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/60 group-focus-within/field:text-primary-text transition-colors">03. Payload da Mensagem</label>
                   <textarea 
                     name="message"
                     required
@@ -121,7 +121,7 @@ export default function Contact() {
                   <FiMail className="text-foreground/40 group-hover:text-primary-text transition-colors" />
                   <span className="font-mono text-sm uppercase tracking-tight">Email</span>
                 </div>
-                <span className="text-foreground/30 font-mono text-[10px]">gui.inven@gmail.com</span>
+                <span className="text-foreground/60 font-mono text-[10px]">gui.inven@gmail.com</span>
               </a>
 
               {/* GitHub */}
@@ -173,7 +173,7 @@ export default function Contact() {
               
               <div className="space-y-6 relative z-10">
                 <div className="flex items-center justify-between border-b border-borderColor/10 pb-4">
-                  <span className="font-mono text-[10px] text-foreground/40 uppercase">Localização</span>
+                  <span className="font-mono text-[10px] text-foreground/60 uppercase">Localização</span>
                   <span className="font-mono text-xs text-foreground flex items-center gap-2">
                     <FiMapPin className="text-primary-text" />
                     ARACAJU, SE - BR
@@ -181,7 +181,7 @@ export default function Contact() {
                 </div>
                 
                 <div className="flex items-center justify-between border-b border-borderColor/10 pb-4">
-                  <span className="font-mono text-[10px] text-foreground/40 uppercase">Disponibilidade</span>
+                  <span className="font-mono text-[10px] text-foreground/60 uppercase">Disponibilidade</span>
                   <span className="font-mono text-xs text-green-500 flex items-center gap-2 animate-pulse">
                     <span className="w-1.5 h-1.5 bg-green-500 animate-cursor"></span>
                     100% ONLINE
@@ -189,7 +189,7 @@ export default function Contact() {
                 </div>
 
                 <div className="flex items-center justify-between border-b border-borderColor/10 pb-4">
-                  <span className="font-mono text-[10px] text-foreground/40 uppercase">Especialidade</span>
+                  <span className="font-mono text-[10px] text-foreground/60 uppercase">Especialidade</span>
                   <span className="font-mono text-xs text-foreground">SISTEMAS_CRITICOS</span>
                 </div>
               </div>
