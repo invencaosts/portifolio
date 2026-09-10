@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from 'react';
 
-type Theme = "system" | "light" | "dark";
+type Theme = 'system' | 'light' | 'dark';
 
 const ThemeContext = createContext<{
   theme: Theme;
@@ -10,10 +10,10 @@ const ThemeContext = createContext<{
 } | null>(null);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("system");
+  const [theme, setThemeState] = useState<Theme>('system');
 
   useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null;
+    const stored = localStorage.getItem('theme') as Theme | null;
 
     if (stored) {
       applyTheme(stored);
@@ -24,34 +24,30 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   function applyTheme(theme: Theme) {
     const html = document.documentElement;
 
-    html.classList.remove("light", "dark");
+    html.classList.remove('light', 'dark');
 
-    if (theme === "light") html.classList.add("light");
-    if (theme === "dark") html.classList.add("dark");
+    if (theme === 'light') html.classList.add('light');
+    if (theme === 'dark') html.classList.add('dark');
     // system → não adiciona nada (CSS decide)
   }
 
   function setTheme(theme: Theme) {
     setThemeState(theme);
 
-    if (theme === "system") {
-      localStorage.removeItem("theme");
+    if (theme === 'system') {
+      localStorage.removeItem('theme');
     } else {
-      localStorage.setItem("theme", theme);
+      localStorage.setItem('theme', theme);
     }
 
     applyTheme(theme);
   }
 
-  return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {
   const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
+  if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
   return ctx;
 }
