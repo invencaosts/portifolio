@@ -1,0 +1,2 @@
+import { profile } from "@/content/profile";
+export default function About(){return <section id="sobre" className="py-20 px-6 md:px-12 lg:px-24 xl:px-40"><div className="max-w-5xl mx-auto bento-card p-8 md:p-12"><p className="section-label">06_SOBRE</p><h2 className="font-headline text-3xl md:text-5xl font-bold mt-4">Produto, engenharia e aprendizado contínuo.</h2><p className="text-lg md:text-xl leading-relaxed text-foreground/70 mt-7">{profile.about}</p></div></section>}

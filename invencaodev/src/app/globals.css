@@ -156,6 +156,13 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+[id] { scroll-margin-top: 5rem; }
+
 /* 6. Utilidades e Animações */
 @layer utilities {
   @keyframes scan {
@@ -182,6 +189,22 @@ body {
     @apply border-primary/40 shadow-[0_0_20px_rgba(255,49,49,0.1)];
   }
 
+  .section-label {
+    @apply font-mono text-xs uppercase tracking-[0.25em] text-primary-text;
+  }
+
+  .section-title {
+    @apply font-headline text-4xl md:text-6xl font-bold tracking-tight mt-4;
+  }
+
+  .section-intro {
+    @apply text-lg text-foreground/60 max-w-3xl mt-5 leading-relaxed;
+  }
+
+  .tech-chip {
+    @apply px-3 py-1 border border-borderColor/30 font-mono text-[10px] uppercase text-foreground/70;
+  }
+
   @keyframes pulse-glow {
     0%, 100% { opacity: 0.3; shadow: 0 0 5px var(--primary); }
     50% { opacity: 0.8; shadow: 0 0 15px var(--primary); }
@@ -198,5 +221,14 @@ body {
 
   .animate-cursor {
     animation: cursor-blink 1s step-end infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
