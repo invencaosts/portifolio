@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="font-headline font-bold text-xl tracking-widest text-foreground">
             {"<invencaodev />"}
           </div>
-          <div className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase text-center md:text-left">
+          <div className="font-mono text-[10px] tracking-[0.2em] text-foreground/60 uppercase text-center md:text-left">
             ENGENHEIRO DE SOFTWARE \\ ARQUITETO DE SISTEMAS
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function Footer() {
 
         {/* Copyright & Meta */}
         <div className="flex flex-col items-center md:items-end gap-1">
-          <div className="font-mono text-[9px] text-foreground/30 uppercase tracking-widest">
+          <div className="font-mono text-[9px] text-foreground/60 uppercase tracking-widest">
             © {currentYear} ALL_SYSTEMS_OPERATIONAL
           </div>
           <div className="flex items-center gap-2">
