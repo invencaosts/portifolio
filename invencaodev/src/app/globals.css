@@ -78,7 +78,7 @@
 @media (prefers-color-scheme: dark) {
   html:not(.light) [data-scope='v4'] {
     --primary: #990000;
-    --primary-text: #cc0000;
+    --primary-text: #ff5c5c;
     --secondary: #6b6963;
     --tertiary: #8b0000;
     --neutral: #1b1a1e;
@@ -100,7 +100,7 @@
 
 html.dark [data-scope='v4'] {
   --primary: #990000;
-  --primary-text: #cc0000;
+  --primary-text: #ff5c5c;
   --secondary: #6b6963;
   --tertiary: #8b0000;
   --neutral: #1b1a1e;
