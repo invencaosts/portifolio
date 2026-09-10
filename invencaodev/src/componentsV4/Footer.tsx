@@ -1,49 +1,38 @@
-import { FiMail, FiGithub, FiLinkedin } from "react-icons/fi";
-import { FaWhatsapp } from "react-icons/fa";
-
+import { profile } from '@/content/profile';
+import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
+import Image from 'next/image';
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="w-full border-t border-borderColor/20 bg-neutral/5 px-6 md:px-12 lg:px-24 xl:px-40 py-16 mt-24">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-
-        {/* Logo & Title */}
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <div className="font-headline font-bold text-xl tracking-widest text-foreground">
-            {"<invencaodev />"}
-          </div>
-          <div className="font-mono text-[10px] tracking-[0.2em] text-foreground/40 uppercase text-center md:text-left">
-            ENGENHEIRO DE SOFTWARE \\ ARQUITETO DE SISTEMAS
-          </div>
+    <footer className="border-borderColor/20 border-t px-6 py-14 md:px-12 lg:px-24 xl:px-40">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
+        <div>
+          <p className="font-headline flex items-center gap-2 text-xl font-bold">
+            <Image src="/icon.svg" alt="" width={22} height={22} />
+            {'<invencaodev />'}
+          </p>
+          <p className="text-foreground/45 mt-2 font-mono text-[10px] uppercase">
+            Desenvolvedor Full Stack · Júnior
+          </p>
         </div>
-
-        {/* Social Links */}
-        <div className="flex gap-6 items-center">
-          <a href="mailto:gui.inven@gmail.com" title="Email" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
-            <FiMail className="w-5 h-5" />
+        <div className="flex gap-4">
+          <a aria-label="Email" href={`mailto:${profile.email}`}>
+            <FiMail />
           </a>
-          <a href="https://api.whatsapp.com/send?phone=5579999684200&text=Oi,%20vim%20pelo%20seu%20portifolio%20e%20gostaria%20de%20conversar%20mais%20sobre." target="_blank" title="WhatsApp" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
-            <FaWhatsapp className="w-5 h-5" />
+          <a aria-label="GitHub" href={profile.github} target="_blank" rel="noopener noreferrer">
+            <FiGithub />
           </a>
-          <a href="https://github.com/invencaosts" target="_blank" title="GitHub" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
-            <FiGithub className="w-5 h-5" />
-          </a>
-          <a href="https://www.linkedin.com/in/guilherme-da-invencao-santos-556497282/" target="_blank" title="LinkedIn" className="p-3 bg-neutral/10 border border-borderColor/40 hover:border-primary/50 hover:text-primary-text transition-all duration-300">
-            <FiLinkedin className="w-5 h-5" />
+          <a
+            aria-label="LinkedIn"
+            href={profile.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FiLinkedin />
           </a>
         </div>
-
-        {/* Copyright & Meta */}
-        <div className="flex flex-col items-center md:items-end gap-1">
-          <div className="font-mono text-[9px] text-foreground/30 uppercase tracking-widest">
-            © {currentYear} ALL_SYSTEMS_OPERATIONAL
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-primary animate-cursor"></span>
-            <span className="font-mono text-[9px] text-primary-text uppercase tracking-widest leading-none">Status: Ativo</span>
-          </div>
-        </div>
+        <p className="text-foreground/40 font-mono text-[9px] uppercase">
+          © {new Date().getFullYear()} · Aracaju_SE_BR
+        </p>
       </div>
     </footer>
   );

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useTheme } from "@/componentsV3/providers/theme-provider";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
+import { useTheme } from '@/componentsV3/providers/theme-provider';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -14,34 +14,33 @@ export default function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: "Início", href: "#inicio" },
-    { name: "Sobre", href: "#sobre" },
-    { name: "Experiência", href: "#experiencia" },
-    { name: "Contato", href: "#contato" },
+    { name: 'Início', href: '#inicio' },
+    { name: 'Sobre', href: '#sobre' },
+    { name: 'Experiência', href: '#experiencia' },
+    { name: 'Contato', href: '#contato' },
   ];
 
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 flex justify-between items-center px-6 md:px-12 h-20 
-        ${scrolled ? "bg-background/80 backdrop-blur-xl" : "bg-transparent"}`}
+        className={`fixed top-0 z-50 flex h-20 w-full items-center justify-between px-6 transition-all duration-300 md:px-12 ${scrolled ? 'bg-background/80 backdrop-blur-xl' : 'bg-transparent'}`}
       >
-        <div className="font-headline font-bold text-foreground tracking-widest text-lg">
-          {"<invencaodev />"}
+        <div className="font-headline text-foreground text-lg font-bold tracking-widest">
+          {'<invencaodev />'}
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex gap-8 items-center">
+        <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="font-headline uppercase tracking-tighter text-sm text-foreground/70 hover:text-primary transition-all duration-200"
+              className="font-headline text-foreground/70 hover:text-primary text-sm tracking-tighter uppercase transition-all duration-200"
             >
               {link.name}
             </Link>
@@ -50,47 +49,47 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4 md:gap-6">
           <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full hover:bg-neutral/10 transition-all duration-300 transform active:scale-90"
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            className="hover:bg-neutral/10 transform rounded-full p-2 transition-all duration-300 active:scale-90"
             title="Alternar Tema"
           >
-            {theme === "dark" ? (
-              <FiSun className="w-5 h-5 text-primary" />
+            {theme === 'dark' ? (
+              <FiSun className="text-primary h-5 w-5" />
             ) : (
-              <FiMoon className="w-5 h-5 text-primary" />
+              <FiMoon className="text-primary h-5 w-5" />
             )}
           </button>
 
           <Link
             href="#contato"
-            className="hidden sm:inline-flex cursor-pointer bg-primary text-white px-6 py-2 font-headline uppercase tracking-wider text-sm font-bold 
-            transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,49,49,0.4)] hover:-translate-y-0.5 active:scale-95"
+            className="bg-primary font-headline hidden cursor-pointer px-6 py-2 text-sm font-bold tracking-wider text-white uppercase transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_25px_rgba(255,49,49,0.4)] active:scale-95 sm:inline-flex"
           >
             Contato
           </Link>
 
           {/* Hamburger Menu Icon */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="text-foreground p-2 md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+            {isMenuOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
           </button>
         </div>
       </nav>
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-40 bg-background transition-transform duration-500 md:hidden ${isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`bg-background fixed inset-0 z-40 transition-transform duration-500 md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
+        <div className="flex h-full flex-col items-center justify-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsMenuOpen(false)}
-              className="font-headline uppercase tracking-widest text-2xl text-foreground/80 hover:text-primary transition-colors"
+              className="font-headline text-foreground/80 hover:text-primary text-2xl tracking-widest uppercase transition-colors"
             >
               {link.name}
             </Link>
@@ -98,7 +97,7 @@ export default function Navbar() {
           <Link
             href="#contato"
             onClick={() => setIsMenuOpen(false)}
-            className="mt-4 bg-primary text-white px-12 py-4 font-headline uppercase tracking-widest text-lg font-bold"
+            className="bg-primary font-headline mt-4 px-12 py-4 text-lg font-bold tracking-widest text-white uppercase"
           >
             Contato
           </Link>

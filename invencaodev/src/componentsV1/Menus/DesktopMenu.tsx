@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const DesktopMenu: React.FC = () => {
   return (
-    <nav className="hidden md:flex space-x-4">
-      <ul className="flex space-x-4 cursor-pointer">
+    <nav className="hidden space-x-4 md:flex">
+      <ul className="flex cursor-pointer space-x-4">
         <li>
           <Link className="flex items-baseline gap-1" href="#home">
             <p className="text-primary text-sm">01.</p>Home
