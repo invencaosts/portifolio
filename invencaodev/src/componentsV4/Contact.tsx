@@ -10,6 +10,7 @@ import {
   FiExternalLink
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
+import { profile } from "@/content/profile";
 
 export default function Contact() {
   return (
@@ -28,7 +29,7 @@ export default function Contact() {
             Estabelecer <br /> <span className="text-foreground/30 italic">Conexão.</span>
           </h2>
           <p className="font-sans text-xl text-foreground/60 max-w-2xl leading-relaxed">
-            Pronto para arquitetar sistemas de alta performance e resolver desafios complexos de engenharia. Envie sua mensagem abaixo.
+            Estou buscando oportunidades como Desenvolvedor Full Stack Júnior, em regime CLT ou PJ. Tenho disponibilidade para trabalho remoto em todo o Brasil e para oportunidades híbridas ou presenciais em Aracaju e Lagarto.
           </p>
         </div>
 
@@ -52,9 +53,11 @@ export default function Contact() {
               <div className="space-y-8">
                 {/* Name Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">01. Identificação</label>
+                  <label htmlFor="contact-name" className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">01. Identificação</label>
                   <input 
+                    id="contact-name"
                     name="name"
+                    autoComplete="name"
                     required
                     className="w-full bg-transparent border-0 border-b border-borderColor/30 py-4 font-mono text-foreground focus:ring-0 focus:border-primary placeholder:text-foreground/20 transition-all outline-none" 
                     placeholder="Seu nome completo ou organização" 
@@ -64,9 +67,11 @@ export default function Contact() {
                 
                 {/* Email Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">02. Endereço de Retorno (Email)</label>
+                  <label htmlFor="contact-email" className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">02. Endereço de Retorno (Email)</label>
                   <input 
+                    id="contact-email"
                     name="email"
+                    autoComplete="email"
                     required
                     className="w-full bg-transparent border-0 border-b border-borderColor/30 py-4 font-mono text-foreground focus:ring-0 focus:border-primary placeholder:text-foreground/20 transition-all outline-none" 
                     placeholder="email@exemplo.com" 
@@ -74,10 +79,16 @@ export default function Contact() {
                   />
                 </div>
                 
+                <div className="group/field">
+                  <label htmlFor="contact-subject" className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">03. Assunto</label>
+                  <input id="contact-subject" name="subject" required className="w-full bg-transparent border-0 border-b border-borderColor/30 py-4 font-mono text-foreground focus:ring-0 focus:border-primary placeholder:text-foreground/20 transition-all outline-none" placeholder="Oportunidade, projeto ou conversa técnica" type="text" />
+                </div>
+
                 {/* Message Field */}
                 <div className="group/field">
-                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">03. Payload da Mensagem</label>
+                  <label htmlFor="contact-message" className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground/40 group-focus-within/field:text-primary-text transition-colors">04. Payload da Mensagem</label>
                   <textarea 
+                    id="contact-message"
                     name="message"
                     required
                     className="w-full bg-transparent border-0 border-b border-borderColor/30 py-4 font-mono text-foreground focus:ring-0 focus:border-primary placeholder:text-foreground/20 transition-all outline-none resize-none" 
@@ -91,6 +102,7 @@ export default function Contact() {
                 {/* Form Config */}
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_next" value="https://invencaodev.com" />
+                <p className="mb-4 font-mono text-[10px] text-foreground/45">O formulário usa um serviço externo para entregar a mensagem ao meu e-mail.</p>
 
                 <button 
                   className="w-full cursor-pointer bg-primary hover:bg-primary/90 text-white font-headline font-bold uppercase tracking-widest py-6 transition-all active:scale-[0.98] flex justify-center items-center gap-3 group/btn" 
@@ -128,6 +140,7 @@ export default function Contact() {
               <a 
                 href="https://github.com/invencaosts" 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-between p-6 bento-card hover:bg-neutral/20 transition-colors group"
               >
                 <div className="flex items-center gap-4">
@@ -139,8 +152,9 @@ export default function Contact() {
 
               {/* LinkedIn */}
               <a 
-                href="https://www.linkedin.com/in/guilherme-da-invencao-santos-556497282/" 
+                href={profile.linkedin}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-between p-6 bento-card hover:bg-neutral/20 transition-colors group"
               >
                 <div className="flex items-center gap-4">
@@ -154,6 +168,7 @@ export default function Contact() {
               <a 
                 href="https://api.whatsapp.com/send?phone=5579999684200&text=Oi,%20vim%20pelo%20seu%20portifolio%20e%20gostaria%20de%20conversar%20mais%20sobre." 
                 target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-between p-6 bento-card hover:bg-neutral/20 transition-colors group"
               >
                 <div className="flex items-center gap-4">
@@ -184,13 +199,13 @@ export default function Contact() {
                   <span className="font-mono text-[10px] text-foreground/40 uppercase">Disponibilidade</span>
                   <span className="font-mono text-xs text-green-500 flex items-center gap-2 animate-pulse">
                     <span className="w-1.5 h-1.5 bg-green-500 animate-cursor"></span>
-                    100% ONLINE
+                    BUSCANDO OPORTUNIDADES
                   </span>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-borderColor/10 pb-4">
                   <span className="font-mono text-[10px] text-foreground/40 uppercase">Especialidade</span>
-                  <span className="font-mono text-xs text-foreground">SISTEMAS_CRITICOS</span>
+                  <span className="font-mono text-xs text-foreground">FULL_STACK_JUNIOR</span>
                 </div>
               </div>
 
