@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* 1. Definição das Variáveis Base (Claro por padrão) */
 :root {
@@ -51,21 +51,22 @@
    onde é declarada — ela NÃO recalcula por elemento ao herdar. Por isso, além
    de sobrescrever --primary etc, é preciso sobrescrever --color-* aqui também,
    senão os componentes continuam herdando o --color-primary já resolvido lá do :root. */
-[data-scope="v4"] {
-  --primary: #cc0002;
-  /* --primary-text: variante de #cc0002 só pra cor de letra — em texto
-     pequeno sobre fundo escuro o vermelho puro não bate 4.5:1 de contraste
-     (WCAG AA). No claro o próprio #cc0002 já passa, então repete o valor. */
-  --primary-text: #cc0002;
+[data-scope='v4'] {
+  --primary: #990000;
+  /* --primary-text: vermelho de detalhe/acento (texto, ícones, bordas),
+     mais claro que --primary pra manter contraste em texto pequeno. */
+  --primary-text: #cc0000;
   --secondary: #6e6a62;
   --tertiary: #986f3f;
   --neutral: #eae7df;
   --background: #f2f0ea;
   --foreground: #14140f;
   --borderColor: #d9d5cb;
+  --menu-surface: #ffffff;
   --font-headline: var(--font-jetbrains-mono);
   --color-primary: var(--primary);
   --color-primary-text: var(--primary-text);
+  --color-menu-surface: var(--menu-surface);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);
@@ -75,17 +76,19 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  html:not(.light) [data-scope="v4"] {
-    --primary: #cc0002;
-    --primary-text: #ff5c5c;
+  html:not(.light) [data-scope='v4'] {
+    --primary: #990000;
+    --primary-text: #cc0000;
     --secondary: #6b6963;
     --tertiary: #8b0000;
     --neutral: #1b1a1e;
     --background: #0c0c0e;
     --foreground: #ededed;
     --borderColor: #2b292e;
+    --menu-surface: #050505;
     --color-primary: var(--primary);
     --color-primary-text: var(--primary-text);
+  --color-menu-surface: var(--menu-surface);
     --color-secondary: var(--secondary);
     --color-tertiary: var(--tertiary);
     --color-neutral: var(--neutral);
@@ -95,17 +98,19 @@
   }
 }
 
-html.dark [data-scope="v4"] {
-  --primary: #cc0002;
-  --primary-text: #ff5c5c;
+html.dark [data-scope='v4'] {
+  --primary: #990000;
+  --primary-text: #cc0000;
   --secondary: #6b6963;
   --tertiary: #8b0000;
   --neutral: #1b1a1e;
   --background: #0c0c0e;
   --foreground: #ededed;
   --borderColor: #2b292e;
+  --menu-surface: #050505;
   --color-primary: var(--primary);
   --color-primary-text: var(--primary-text);
+  --color-menu-surface: var(--menu-surface);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);
@@ -114,17 +119,19 @@ html.dark [data-scope="v4"] {
   --color-borderColor: var(--borderColor);
 }
 
-html.light [data-scope="v4"] {
-  --primary: #cc0002;
-  --primary-text: #cc0002;
+html.light [data-scope='v4'] {
+  --primary: #990000;
+  --primary-text: #cc0000;
   --secondary: #6e6a62;
   --tertiary: #986f3f;
   --neutral: #eae7df;
   --background: #f2f0ea;
   --foreground: #14140f;
   --borderColor: #d9d5cb;
+  --menu-surface: #ffffff;
   --color-primary: var(--primary);
   --color-primary-text: var(--primary-text);
+  --color-menu-surface: var(--menu-surface);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);
@@ -141,6 +148,7 @@ html.light [data-scope="v4"] {
 
   --color-primary: var(--primary);
   --color-primary-text: var(--primary-text, var(--primary));
+  --color-menu-surface: var(--menu-surface, var(--neutral));
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
   --color-neutral: var(--neutral);
@@ -153,7 +161,9 @@ html.light [data-scope="v4"] {
 body {
   background: var(--background);
   color: var(--foreground);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 :focus-visible {
@@ -161,14 +171,22 @@ body {
   outline-offset: 4px;
 }
 
-[id] { scroll-margin-top: 5rem; }
+[id] {
+  scroll-margin-top: 5rem;
+}
 
 /* 6. Utilidades e Animações */
 @layer utilities {
   @keyframes scan {
-    0% { top: 0%; }
-    50% { top: 100%; }
-    100% { top: 0%; }
+    0% {
+      top: 0%;
+    }
+    50% {
+      top: 100%;
+    }
+    100% {
+      top: 0%;
+    }
   }
 
   .animate-scan {
@@ -180,9 +198,18 @@ body {
     background-size: 30px 30px;
   }
 
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Bento & Card Enhancements */
   .bento-card {
-    @apply bg-neutral/15 border border-borderColor/20 transition-all duration-300;
+    @apply bg-neutral/15 border-borderColor/20 border transition-all duration-300;
   }
 
   .bento-card:hover {
@@ -190,33 +217,59 @@ body {
   }
 
   .section-label {
-    @apply font-mono text-xs uppercase tracking-[0.25em] text-primary-text;
+    @apply text-primary-text font-mono text-xs tracking-[0.25em] uppercase;
   }
 
   .section-title {
-    @apply font-headline text-4xl md:text-6xl font-bold tracking-tight mt-4;
+    @apply font-headline mt-4 text-4xl font-bold tracking-tight md:text-6xl;
   }
 
   .section-intro {
-    @apply text-lg text-foreground/60 max-w-3xl mt-5 leading-relaxed;
+    @apply text-foreground/60 mt-5 max-w-3xl text-lg leading-relaxed;
   }
 
   .tech-chip {
-    @apply px-3 py-1 border border-borderColor/30 font-mono text-[10px] uppercase text-foreground/70;
+    @apply border-borderColor/30 text-foreground/70 border px-3 py-1 font-mono text-[10px] uppercase;
   }
 
   @keyframes pulse-glow {
-    0%, 100% { opacity: 0.3; shadow: 0 0 5px var(--primary); }
-    50% { opacity: 0.8; shadow: 0 0 15px var(--primary); }
+    0%,
+    100% {
+      opacity: 0.3;
+      shadow: 0 0 5px var(--primary);
+    }
+    50% {
+      opacity: 0.8;
+      shadow: 0 0 15px var(--primary);
+    }
   }
 
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
   }
 
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 90s linear infinite;
+  }
+
   @keyframes cursor-blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
   }
 
   .animate-cursor {
@@ -225,7 +278,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;

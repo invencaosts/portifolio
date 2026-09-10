@@ -1,21 +1,21 @@
-export type LinkItem = { label: string; href: string; kind: "case" | "code" | "demo" | "social" | "cv" };
+export type LinkItem = {
+  label: string;
+  href: string;
+  kind: 'case' | 'code' | 'demo' | 'social' | 'cv';
+};
 
 export type ProjectCase = {
   slug: string;
   title: string;
   shortTitle: string;
   category: string;
-  status: "Em desenvolvimento" | "Demonstração";
+  status: 'Em desenvolvimento' | 'Demonstração';
   summary: string;
   role: string;
   collaboration: string;
   context: string[];
-  contributions: string[];
-  decisions: { problem: string; decision: string; tradeoff: string }[];
-  technologies: string[];
-  evidence: string[];
-  limitations: string[];
-  learnings: string[];
+  narrative: string;
+  technologies: { name: string; use: string }[];
   links: LinkItem[];
 };
 
@@ -38,8 +38,8 @@ export type AcademicEntry = {
   period: string;
   status: string;
   description: string;
-  contributionMode: "individual" | "equipe";
+  contributionMode: 'individual' | 'equipe';
   contributions: string[];
+  technologies?: string[];
   href?: string;
 };
-
