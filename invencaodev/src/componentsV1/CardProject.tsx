@@ -1,4 +1,4 @@
-import { IconType } from "react-icons";
+import { IconType } from 'react-icons';
 
 interface CardProjectProps {
   repoName: string;
@@ -18,23 +18,19 @@ const CardProject = ({
 
   return (
     <div
-      className={`p-4 h-auto w-full bg-tertiary text-secundary flex flex-col items-start justify-between 
-        rounded-lg shadow-[0px_4px_6px_rgba(0,0,0,0.25),0px_-4px_6px_rgba(0,0,0,0.15)] ${className}`}
+      className={`bg-tertiary text-secundary flex h-auto w-full flex-col items-start justify-between rounded-lg p-4 shadow-[0px_4px_6px_rgba(0,0,0,0.25),0px_-4px_6px_rgba(0,0,0,0.15)] ${className}`}
     >
       {/* Nome do repositório */}
-      <h3 className="text-lg font-bold text-primary">{repoName}</h3>
+      <h3 className="text-primary text-lg font-bold">{repoName}</h3>
 
       {/* Descrição do repositório */}
-      <p className="text-sm mt-2 line-clamp-3">{description}</p>
+      <p className="mt-2 line-clamp-3 text-sm">{description}</p>
 
       {/* Tecnologias usadas */}
-      <div className="flex items-center mt-4 space-x-2">
+      <div className="mt-4 flex items-center space-x-2">
         {displayedTechnologies.map((tech, index) => (
           <div key={index} className="flex items-center space-x-1">
-            <tech.icon
-              className="w-[20px] h-[20px]"
-              style={{ color: "#000000" }}
-            />
+            <tech.icon className="h-[20px] w-[20px]" style={{ color: '#000000' }} />
             <span className="text-xs">{tech.label}</span>
           </div>
         ))}
@@ -46,7 +42,7 @@ const CardProject = ({
           href={repoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center mt-4 px-2 py-1 bg-primary text-white text-sm rounded"
+          className="bg-primary mt-4 flex items-center rounded px-2 py-1 text-sm text-white"
         >
           Ver Repositório
         </a>
