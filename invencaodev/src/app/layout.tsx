@@ -21,9 +21,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const siteUrl = "https://invencaodev.com";
-const siteTitle = "Guilherme da Invenção — Engenheiro de Software & Arquiteto de Sistemas";
+const siteTitle = "Guilherme da Invenção | Desenvolvedor Full Stack";
 const siteDescription =
-  "Engenheiro de Software na WM Saúde, focado em sistemas de alta criticidade (ERP & Saúde), arquitetura escalável e pesquisa em segurança da informação. Projetos em Next.js, TypeScript e Node.js.";
+  "Desenvolvedor Full Stack Júnior em Aracaju, com experiência em TypeScript, React, Next.js, Node.js, AdonisJS e PostgreSQL aplicada a sistemas de saúde, gestão e geodados.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,14 +34,13 @@ export const metadata: Metadata = {
   description: siteDescription,
   keywords: [
     "Guilherme da Invenção",
-    "engenheiro de software",
-    "arquiteto de sistemas",
     "desenvolvedor full stack",
+    "desenvolvedor júnior",
     "Next.js",
     "TypeScript",
     "Node.js",
-    "cibersegurança",
-    "pentest",
+    "PostgreSQL",
+    "Web GIS",
     "portfólio dev Aracaju",
     "WM Saúde",
   ],
@@ -67,7 +66,7 @@ export const metadata: Metadata = {
     siteName: "invencaodev",
     title: siteTitle,
     description: siteDescription,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Guilherme da Invenção — Arquiteto de Sistemas & Engenheiro de Software" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Guilherme da Invenção — Desenvolvedor Full Stack" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -107,7 +106,7 @@ const personJsonLd = {
   name: "Guilherme da Invenção",
   url: siteUrl,
   image: `${siteUrl}/og-image.png`,
-  jobTitle: "Engenheiro de Software & Arquiteto de Sistemas",
+  jobTitle: "Desenvolvedor Full Stack",
   email: "mailto:gui.inven@gmail.com",
   description: siteDescription,
   address: {
@@ -124,16 +123,17 @@ const personJsonLd = {
     "TypeScript",
     "Next.js",
     "Node.js",
-    "NestJS",
+    "React",
+    "AdonisJS",
     "PostgreSQL",
     "Docker",
-    "Cibersegurança",
-    "Sistemas ERP",
-    "Health Tech",
+    "APIs REST",
+    "Web GIS",
+    "Sistemas de saúde",
   ],
   sameAs: [
     "https://github.com/invencaosts",
-    "https://www.linkedin.com/in/guilherme-da-invencao-santos-556497282/",
+    "https://linkedin.com/in/invencaosts/",
   ],
 };
 
