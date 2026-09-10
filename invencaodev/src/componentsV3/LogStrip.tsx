@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
 export default function LogStrip() {
   const logs = [
-    "SETOR: SAÚDE_EFICIÊNCIA_OPERACIONAL",
-    "ARQUITETURA: ESCALABILIDADE_CRÍTICA",
-    "SEGURANÇA: CYBER_PESQUISA_ATIVA",
-    "STATUS: RESILIÊNCIA_ESTÁVEL",
-    "OPTIMIZAÇÃO: PROCESSOS_ERP",
-    "INTEGRIDADE: DADOS_PROTEGIDOS",
-    "ENGENHARIA: BOAS_PRÁTICAS_VALIDADAS",
-    "PERFORMANCE: ALTA_CAPACIDADE",
+    'SETOR: SAÚDE_EFICIÊNCIA_OPERACIONAL',
+    'ARQUITETURA: ESCALABILIDADE_CRÍTICA',
+    'SEGURANÇA: CYBER_PESQUISA_ATIVA',
+    'STATUS: RESILIÊNCIA_ESTÁVEL',
+    'OPTIMIZAÇÃO: PROCESSOS_ERP',
+    'INTEGRIDADE: DADOS_PROTEGIDOS',
+    'ENGENHARIA: BOAS_PRÁTICAS_VALIDADAS',
+    'PERFORMANCE: ALTA_CAPACIDADE',
   ];
 
   return (
-    <section className="border-y border-borderColor/20 bg-neutral/5 py-8 overflow-hidden">
-      <div className="flex whitespace-nowrap gap-12 animate-marquee">
+    <section className="border-borderColor/20 bg-neutral/5 overflow-hidden border-y py-8">
+      <div className="animate-marquee flex gap-12 whitespace-nowrap">
         {logs.map((log, index) => (
           <span
             key={index}
-            className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest flex items-center gap-2"
+            className="text-foreground/40 flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase"
           >
-            <span className="w-1 h-1 bg-primary rounded-full"></span>
+            <span className="bg-primary h-1 w-1 rounded-full"></span>
             {log}
           </span>
         ))}
@@ -28,9 +28,9 @@ export default function LogStrip() {
         {logs.map((log, index) => (
           <span
             key={`repeat-${index}`}
-            className="font-mono text-[10px] text-foreground/40 uppercase tracking-widest flex items-center gap-2"
+            className="text-foreground/40 flex items-center gap-2 font-mono text-[10px] tracking-widest uppercase"
           >
-            <span className="w-1 h-1 bg-primary rounded-full"></span>
+            <span className="bg-primary h-1 w-1 rounded-full"></span>
             {log}
           </span>
         ))}
@@ -38,8 +38,12 @@ export default function LogStrip() {
 
       <style jsx>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .animate-marquee {
           display: flex;

@@ -1,33 +1,30 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import Link from 'next/link';
+import { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
 
 const MobileMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <div className="md:hidden relative">
+    <div className="relative md:hidden">
       {/* Botão do menu com animação */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`p-2 text-secundary hover:text-primary focus:outline-none transition-transform duration-300 ${
-          isOpen ? "-rotate-90" : "rotate-0"
+        className={`text-secundary hover:text-primary p-2 transition-transform duration-300 focus:outline-none ${
+          isOpen ? '-rotate-90' : 'rotate-0'
         }`}
-        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+        aria-label={isOpen ? 'Fechar menu' : 'Abrir menu'}
       >
-        {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
+        {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
       </button>
 
       {/* Menu lateral compacto */}
       <div
-        className={`fixed top-18 right-4 z-50 w-[180px] flex flex-col items-center bg-tertiary shadow-xl rounded-lg p-4 w-32 
-          transform transition-transform duration-300 ease-in-out ${
-            isOpen
-              ? "translate-y-0 opacity-100 visible"
-              : "-translate-y-4 opacity-0 invisible"
-          }`}
+        className={`bg-tertiary fixed top-18 right-4 z-50 flex w-32 w-[180px] transform flex-col items-center rounded-lg p-4 shadow-xl transition-transform duration-300 ease-in-out ${
+          isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-4 opacity-0'
+        }`}
       >
         {/* Conteúdo do menu */}
         <nav className="mt-4">

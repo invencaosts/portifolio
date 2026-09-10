@@ -1,14 +1,14 @@
-import GlowLinkButton from "@/componentsV2/GlowLinkButton";
+import GlowLinkButton from '@/componentsV2/GlowLinkButton';
 
 export default function DesktopMenu() {
   return (
     <div>
       <nav className="flex items-center justify-center gap-6">
-        <ul className="flex gap-4 text-sm text-end">
+        <ul className="flex gap-4 text-end text-sm">
           <li>
             <a
               href="#home"
-              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              className="hover:text-primary cursor-pointer opacity-80 transition-colors"
             >
               Home
             </a>
@@ -17,7 +17,7 @@ export default function DesktopMenu() {
           <li>
             <a
               href="#sobre"
-              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              className="hover:text-primary cursor-pointer opacity-80 transition-colors"
             >
               Sobre
             </a>
@@ -26,7 +26,7 @@ export default function DesktopMenu() {
           <li>
             <a
               href="#projetos"
-              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              className="hover:text-primary cursor-pointer opacity-80 transition-colors"
             >
               Projetos
             </a>
@@ -35,7 +35,7 @@ export default function DesktopMenu() {
           <li>
             <a
               href="#habilidades"
-              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              className="hover:text-primary cursor-pointer opacity-80 transition-colors"
             >
               Habilidades
             </a>
@@ -44,7 +44,7 @@ export default function DesktopMenu() {
           <li>
             <a
               href="#conquistas"
-              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              className="hover:text-primary cursor-pointer opacity-80 transition-colors"
             >
               Conquistas
             </a>
@@ -53,7 +53,7 @@ export default function DesktopMenu() {
           <li>
             <a
               href="#contato"
-              className="opacity-80 cursor-pointer hover:text-primary transition-colors"
+              className="hover:text-primary cursor-pointer opacity-80 transition-colors"
             >
               Contato
             </a>

@@ -1,0 +1,79 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Navbar from '@/componentsV4/Navbar';
+import Footer from '@/componentsV4/Footer';
+import ProjectCaseLayout from '@/componentsV4/ProjectCaseLayout';
+import { ThemeProvider } from '@/componentsV4/providers/theme-provider';
+import { getProject, projects } from '@/content/projects';
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return projects.map(({ slug }) => ({ slug }));
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const p = getProject(slug);
+  if (!p) return {};
+  return {
+    title: p.shortTitle,
+    description: p.summary,
+    alternates: { canonical: `/projetos/${p.slug}` },
+    openGraph: {
+      title: p.title,
+      description: p.summary,
+      url: `/projetos/${p.slug}`,
+      type: 'article',
+    },
+  };
+}
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = getProject(slug);
+  if (!project) notFound();
+  const jsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareSourceCode',
+      name: project.title,
+      description: project.summary,
+      codeRepository: project.links.find((l) => l.kind === 'code')?.href,
+      programmingLanguage: project.technologies.map((t) => t.name),
+      author: { '@type': 'Person', name: 'Guilherme da Invenção' },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://invencaodev.com/' },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Projetos',
+          item: 'https://invencaodev.com/#projetos',
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: project.shortTitle,
+          item: `https://invencaodev.com/projetos/${project.slug}`,
+        },
+      ],
+    },
+  ];
+  return (
+    <ThemeProvider>
+      <div data-scope="v4" className="bg-background text-foreground min-h-screen">
+        <Navbar />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <ProjectCaseLayout project={project} />
+        <Footer />
+      </div>
+    </ThemeProvider>
+  );
+}

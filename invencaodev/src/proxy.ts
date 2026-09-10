@@ -1,24 +1,24 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest, NextResponse } from 'next/server';
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Desenvolvimento: libera tudo
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === 'development') {
     return NextResponse.next();
   }
 
   // Bloquear versões legadas (v1, v2)
-  if (pathname.startsWith("/v1") || pathname.startsWith("/v2")) {
+  if (pathname.startsWith('/v1') || pathname.startsWith('/v2')) {
     const url = request.nextUrl.clone();
-    url.pathname = "/";
+    url.pathname = '/';
     return NextResponse.redirect(url);
   }
 
   // Se estiver acessando a rota específica /v3, redireciona para a raiz
-  if (pathname.startsWith("/v3")) {
+  if (pathname.startsWith('/v3')) {
     const url = request.nextUrl.clone();
-    url.pathname = "/";
+    url.pathname = '/';
     return NextResponse.redirect(url);
   }
 
@@ -35,6 +35,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * - images (project images)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico|images).*)",
+    '/((?!api|_next/static|_next/image|favicon.ico|images).*)',
   ],
 };
