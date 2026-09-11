@@ -3,7 +3,7 @@ import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 import Image from 'next/image';
 export default function Footer() {
   return (
-    <footer className="border-borderColor/20 border-t px-6 py-14 md:px-12 lg:px-24 xl:px-40">
+    <footer className="border-borderColor/20 border-t px-6 pt-14 pb-28 md:px-12 md:pb-14 lg:px-24 xl:px-40">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 md:flex-row">
         <div>
           <p className="font-headline flex items-center gap-2 text-xl font-bold">
