@@ -227,7 +227,7 @@ export default function Contact() {
               </h3>
 
               <div className="relative z-10 space-y-6">
-                <div className="border-borderColor/10 flex items-center justify-between border-b pb-4">
+                <div className="border-borderColor/10 flex flex-col gap-1 border-b pb-4 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
                   <span className="text-foreground/60 font-mono text-[10px] uppercase">
                     Localização
                   </span>
@@ -237,17 +237,17 @@ export default function Contact() {
                   </span>
                 </div>
 
-                <div className="border-borderColor/10 flex items-center justify-between border-b pb-4">
+                <div className="border-borderColor/10 flex flex-col gap-1 border-b pb-4 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
                   <span className="text-foreground/60 font-mono text-[10px] uppercase">
                     Disponibilidade
                   </span>
-                  <span className="flex animate-pulse items-center gap-2 font-mono text-xs text-green-500">
-                    <span className="animate-cursor h-1.5 w-1.5 bg-green-500"></span>
+                  <span className="flex animate-pulse items-center gap-2 font-mono text-xs text-green-500 sm:justify-end">
+                    <span className="animate-cursor h-1.5 w-1.5 shrink-0 bg-green-500"></span>
                     BUSCANDO OPORTUNIDADES
                   </span>
                 </div>
 
-                <div className="border-borderColor/10 flex items-center justify-between border-b pb-4">
+                <div className="border-borderColor/10 flex flex-col gap-1 border-b pb-4 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
                   <span className="text-foreground/60 font-mono text-[10px] uppercase">
                     Especialidade
                   </span>

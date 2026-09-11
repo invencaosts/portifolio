@@ -175,6 +175,16 @@ body {
   scroll-margin-top: 5rem;
 }
 
+/* Remove o realce nativo do navegador (box-shadow/outline vermelho) em
+   inputs required/inválidos, que aparecia sobrepondo o label acima. */
+input:required,
+textarea:required,
+input:invalid,
+textarea:invalid {
+  box-shadow: none;
+  outline: none;
+}
+
 /* 6. Utilidades e Animações */
 @layer utilities {
   @keyframes scan {
